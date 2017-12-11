@@ -5,6 +5,7 @@
   "main": "musica.js",
   "scripts": {
     "test": ""
+    "start": "node MusicBot.js"
   },
   "keywords": [
     "discord",
