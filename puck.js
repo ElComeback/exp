@@ -200,20 +200,20 @@ function play(guild, song) {
 //INICIA MODULOS GENERALES
 
 //Definicion de la variable Prefijo 
-var prefix = [~];
+var prefijo = [~];
 
 //Modulos de Respuesta (Ping y Hola)
  client.on("message", (message) => {
-  if (message.content.startsWith(prefix + "ping")) {
+  if (message.content.startsWith(prefijo + "ping")) {
     message.channel.send("pong!");
   } else
-  if (message.content.startsWith(prefix + "hola")) {
+  if (message.content.startsWith(prefijo + "hola")) {
     message.channel.send("Hola que tal?");
   }
  });
 //Modulo Informacion del Desarrollador del Bot
  client.on("message", (message) => {
- if (message.content.startsWith(prefix + "desarrollador" )){
+ if (message.content.startsWith(prefijo + "desarrollador" )){
     const embed = new Discord.RichEmbed() 
     .setTitle("Documentacion de Ayuda de Puck")
     .setAuthor(message.author.username, client.user.avatarURL)
@@ -238,12 +238,12 @@ var prefix = [~];
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
-  if(message.content.startsWith(prefix + 'repetir')){
+  if(message.content.startsWith(prefijo + 'repetir')){
   
   if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
   message.channel.send(`${args}`);
 
-  if(message.content.startsWith(prefix + 'decir')){
+  if(message.content.startsWith(prefijo + 'decir')){
   
  }}})
 
@@ -253,7 +253,7 @@ var prefix = [~];
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
- if(message.content.startsWith(prefix + "caracolamagica")){
+ if(message.content.startsWith(prefijo + "caracolamagica")){
 
   var rpts = ["Sí (｀▽´) ", "No (｀ε´) ", "¿Por qué? (*´∀｀）", "No lo creo ┐(ﾟ～ﾟ)┌ ", "Tal vez ( ͡° ͜ʖ ͡°) ", "No sé ┐(´∀｀)┌ ", "Lo dudo ◉︵◉ ", " ¡Claro! o(｀^´*) "," Sí b(￣▽￣*) "," No ⋋_⋌ "," Por supuesto! (｀∇´ゞ "," Por supuesto que no (｀ε´)"];
   if (!args) return message.reply("Escribe una pregunta a responder (꒪⌓꒪).");
@@ -263,7 +263,7 @@ var prefix = [~];
 
 //Modulo Expulsar
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'expulsar' )){
+ if(message.content.startsWith(prefijo + 'expulsar' )){
 
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
@@ -279,7 +279,7 @@ var prefix = [~];
 
 //Modulo Avatar
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'avatar')){
+ if(message.content.startsWith(prefijo + 'avatar')){
 
       let img = message.mentions.users.first()
       if (!img) {
@@ -309,7 +309,7 @@ var prefix = [~];
 //Modulo Destierro
 
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'desterrar' )){
+ if(message.content.startsWith(prefijo + 'desterrar' )){
     
         let user = message.mentions.users.first();
         let razon = args.split(' ').slice(1).join(' ');
@@ -326,7 +326,7 @@ var prefix = [~];
 
 //Modulo Informacion del Servidor
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'servidor')){
+ if(message.content.startsWith(prefijo + 'servidor')){
 
     var server = message.guild;
   
@@ -347,7 +347,7 @@ var prefix = [~];
 
 //Modulo Informacion de Usuario
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'usuario')){
+ if(message.content.startsWith(prefijo + 'usuario')){
     let userm = message.mentions.users.first()
     if(!userm){
       var user = message.author;
@@ -382,22 +382,22 @@ var prefix = [~];
 
 //Modulo Ayuda
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'ayuda')){
+ if(message.content.startsWith(prefijo + 'ayuda')){
 
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados v(￣∇￣).') .then(m => {
         m.delete(10000);
 
  });
     message.author.send('**Comandos de Puck**\n```\n'+
-                        '-> '+prefix+'ping             :: Comprueba la latencia del bot y de tus mensajes.\n'+
-                        '-> '+prefix+'avatar <@user>   :: Muestra el avatar de un usuario.\n'+
-                        '-> '+prefix+'repetir          :: Hace que el bot diga un mensaje.\n'+
-                        '-> '+prefix+'usuario <@user>  :: Muestra información sobre un usuario mencionado.\n'+
-                        '-> '+prefix+'servidor         :: Muestra información de un servidor determinado.\n'+
-                        '-> '+prefix+'caracolamagica   :: El bot respondera a tus preguntas.\n'+
-                        '-> '+prefix+'desterrar <@user>:: Banear a un usuario del servidor incluye razon.\n'+
-                        '-> '+prefix+'expulsar <@user> :: Patear a un usuario del servidor incluye razon.\n'+
-                        '-> '+prefix+'hola             :: Retorna un saludo como mensaje.\n```\n\n'+
+                        '-> '+prefijo+'ping             :: Comprueba la latencia del bot y de tus mensajes.\n'+
+                        '-> '+prefijo+'avatar <@user>   :: Muestra el avatar de un usuario.\n'+
+                        '-> '+prefijo+'repetir          :: Hace que el bot diga un mensaje.\n'+
+                        '-> '+prefijo+'usuario <@user>  :: Muestra información sobre un usuario mencionado.\n'+
+                        '-> '+prefijo+'servidor         :: Muestra información de un servidor determinado.\n'+
+                        '-> '+prefijo+'caracolamagica   :: El bot respondera a tus preguntas.\n'+
+                        '-> '+prefijo+'desterrar <@user>:: Banear a un usuario del servidor incluye razon.\n'+
+                        '-> '+prefijo+'expulsar <@user> :: Patear a un usuario del servidor incluye razon.\n'+
+                        '-> '+prefijo+'hola             :: Retorna un saludo como mensaje.\n```\n\n'+
                         '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
     
   }})
@@ -412,10 +412,10 @@ var prefix = [~];
 //Modulo Purgar
  client.on("message", (message) => {
 
-  let cont = message.content.slice(prefix.length).split(" "); 
+  let cont = message.content.slice(prefijo.length).split(" "); 
   let args = cont.slice(1); 
 
-    if (message.content.startsWith(prefix + 'purgar')) { 
+    if (message.content.startsWith(prefijo + 'purgar')) { 
         
         async function purge() {
             message.delete(); 
@@ -429,7 +429,7 @@ var prefix = [~];
             
             if (isNaN(args[0])) {
                 
-                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + prefix + 'purgar <cantidad>'); 
+                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + prefijo + 'purgar <cantidad>'); 
                 
                 return;
             }
