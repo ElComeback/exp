@@ -13,9 +13,7 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => console.log('Listo!');
-client.user.setGame(prefix+'ayuda |´∀｀●) ');
-);
+client.on('ready', () => console.log('Listo!'));
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
