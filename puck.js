@@ -31,7 +31,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === "Reproducir") {
+	if (command === `reproducir`) {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('Lo siento, pero necesitas estar en un canal de voz para funcionar');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -82,42 +82,42 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 			}
 			return handleVideo(video, msg, voiceChannel);
 		}
-	} else if (command === "Saltar") {
+	} else if (command === `Saltar`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz!');
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose como para saltarlo.');
 		serverQueue.connection.dispatcher.end('Se ha saltado el multimedia');
 		return undefined;
-	} else if (command === "Detener") {
+	} else if (command === `Detener`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz!');
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose como para detenerlo.');
 		serverQueue.songs = [];
 		serverQueue.connection.dispatcher.end('Se ha detenido el multimedia!');
 		return undefined;
-	} else if (command === "Volumen") {
+	} else if (command === `Volumen`) {
 		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz!');
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose.');
 		if (!args[1]) return msg.channel.send(`El volumen actual es: **${serverQueue.volume}**`);
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
 		return msg.channel.send(`Ajustando el volumen a: **${args[1]}** ...`);
-	} else if (command === "Estatus") {
+	} else if (command === `Estatus`) {
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose.');
 		return msg.channel.send(`🎶 Reproduciendo ahora...: **${serverQueue.songs[0].title}**`);
-	} else if (command === "Listado") {
+	} else if (command === `Listado`) {
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose');
 		return msg.channel.send(`
 __**Listado de multimedia:**__
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 **Reproduciendo ahora...:** ${serverQueue.songs[0].title}
 		`);
-	} else if (command === "Pausa") {
+	} else if (command === `Pausa`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
 			return msg.channel.send('⏸ Pausando la reproduccion...');
 		}
 		return msg.channel.send('There is nothing playing.');
-	} else if (command === "Continuar") {
+	} else if (command === `Continuar`) {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
