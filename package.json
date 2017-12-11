@@ -4,7 +4,6 @@
   "description": "Un bot de musica",
   "main": "musica.js",
   "scripts": {
-    "test": ""
     "start": "node MusicBot.js"
   },
   "keywords": [
