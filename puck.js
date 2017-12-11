@@ -10,7 +10,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 
 //Definicion de la variable Prefijo
-var PREFIX = [~];
+const PREFIX = [~];
 
 client.on('warn', console.warn);
 
