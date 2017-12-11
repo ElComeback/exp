@@ -1,0 +1,32 @@
+{
+  "name": "musica",
+  "version": "0.1.0",
+  "description": "Un bot de musica",
+  "main": "musica.js",
+  "scripts": {
+    "test": ""
+  },
+  "keywords": [
+    "discord",
+    "bot",
+    "discordbot"
+  ],
+  "author": "El Comeback",
+  "license": "GNUv3",
+  "dependencies": {
+    "discord.js": "^11.2.1",
+    "opusscript": "0.0.4",
+    "simple-youtube-api": "^5.0.0",
+    "ytdl-core": "^0.18.3"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-aqua": "^1.0.0"
+  },
+  "eslintConfig": {
+    "extends": "aqua",
+    "rules": {
+      "no-console": 0
+    }
+  }
+}
