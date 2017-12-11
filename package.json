@@ -2,9 +2,9 @@
   "name": "musica",
   "version": "0.1.0",
   "description": "Un bot de musica",
-  "main": "musica.js",
+  "main": "puck.js",
   "scripts": {
-    "start": "node MusicBot.js"
+    "start": "node puck.js"
   },
   "keywords": [
     "discord",
