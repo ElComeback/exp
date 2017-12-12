@@ -5,6 +5,8 @@ const ytdl = require('ytdl-core');
 
 const  client = new Discord.Client();
 
+const client = new Client({ disableEveryone: true });
+
 const youtube = new YouTube(GOOGLE_API_KEY);
 
 const queue = new Map();
