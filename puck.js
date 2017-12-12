@@ -29,6 +29,244 @@ client.on('reconnecting', () => console.log('Conectado!'));
   }
  });
 
+//Modulo Informacion del Desarrollador del Bot
+ client.on("message", (message) => {
+ if (message.content.startsWith(PREFIX + "desarrollador" )){
+    const embed = new Discord.RichEmbed() 
+    .setTitle("Documentacion de Ayuda de Puck")
+    .setAuthor(message.author.username, client.user.avatarURL)
+    .setColor(0x9900FF)
+    .setDescription("La informacion presente debajo de este texto solo está disponible en español")
+    .setFooter("// Programado por El Comeback //", message.author.avatarURL)
+    .setImage(client.user.avatarURL)
+    .setThumbnail("https://icon-icons.com/icons2/571/PNG/512/warning-weather-interface-outlined-symbol_icon-icons.com_54630.png" )
+    .setTimestamp()
+    .setURL("http://craterdev.com/documentacion-mybot")
+    .addField("Acerca de Puck","Puck es un personaje originario del Manga/Anime 'Berserk', en el cual es un elfo que acompaña al heroe Guts, durante su duro trayecto, siempre denotando una actitud carismatica y bromista, ideal de todo buen compañero de batalla, ahora, le hemos logrado adaptar como un bot para satisfacer tus necesidades en el servidor")
+    .addField("Lenguaje de Programacion", "JavaScript", true)
+    .addField("Region", "Mexico", true)
+    .addField("Sexo del Bot","Masculino", true)
+    .addField("Servidor Madre","[*Ether.net*](https://discord.gg/Djja5t3)",true)
+    message.channel.send({embed});
+  }});
+
+//Modulo Repetir
+ client.on("message", (message) => {
+
+ const content = message.content.split(' ').slice(1);
+ const args = content.join(' ');
+
+  if(message.content.startsWith(PREFIX + 'repetir')){
+  
+  if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
+  message.channel.send(`${args}`);
+
+  if(message.content.startsWith(PREFIX + 'decir')){
+  
+ }}})
+
+//Modulo Caracola Magica
+ client.on("message", (message) => {
+
+ const content = message.content.split(' ').slice(1);
+ const args = content.join(' ');
+
+ if(message.content.startsWith(PREFIX + "caracolamagica")){
+
+  var rpts = ["Sí (｀▽´) ", "No (｀ε´) ", "¿Por qué? (*´∀｀）", "No lo creo ┐(ﾟ～ﾟ)┌ ", "Tal vez ( ͡° ͜ʖ ͡°) ", "No sé ┐(´∀｀)┌ ", "Lo dudo ◉︵◉ ", " ¡Claro! o(｀^´*) "," Sí b(￣▽￣*) "," No ⋋_⋌ "," Por supuesto! (｀∇´ゞ "," Por supuesto que no (｀ε´)"];
+  if (!args) return message.reply("Escribe una pregunta a responder (꒪⌓꒪).");
+  message.channel.send(message.member.user+' mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)]+'`');
+
+ }})
+
+//Modulo Expulsar
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'expulsar' )){
+
+    let user = message.mentions.users.first();
+    let razon = args.split(' ').slice(1).join(' ');
+    
+    if (message.mentions.users.size < 1) return message.reply('Debes mencionar a alguien ( ・・)つ-●●●.').catch(console.error);
+    if (!razon) return message.channel.send('Escriba la razón de la expulsion （´ヘ｀；）, `-expulsar @username [razón]`');
+    if (!message.guild.member(user).kickable) return message.reply('No puedo expulsar al usuario seleccionado (ﾉ｀□´)ﾉ⌒┻━┻.');
+     
+    message.guild.member(user).kick(razon);
+    message.channel.send(`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ **${user.username}**, fue expulsado del servidor, razón: ${razon}.`);
+
+  }})
+
+//Modulo Avatar
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'avatar')){
+
+      let img = message.mentions.users.first()
+      if (!img) {
+
+          const embed = new Discord.RichEmbed()
+          .setImage(`${message.author.avatarURL}`)
+          .setColor(0x66b3ff)
+          .setFooter(`Avatar de ${message.author.username}#${message.author.discriminator}`);
+          message.channel.send({ embed });
+
+      } else if (img.avatarURL === null) {
+
+          message.channel.sendMessage("Nuestro amigo ("+ img.username +") no tiene avatar! ԅ(¯﹃¯ԅ)");
+
+      } else {
+
+          const embed = new Discord.RichEmbed()
+          .setImage(`${img.avatarURL}`)
+          .setColor(0x66b3ff)
+          .setFooter(`Avatar de ${img.username}#${img.discriminator}`);
+          message.channel.send({ embed });
+
+      };
+
+        }})
+
+//Modulo Destierro
+
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'desterrar' )){
+    
+        let user = message.mentions.users.first();
+        let razon = args.split(' ').slice(1).join(' ');
+    
+        if (message.mentions.users.size < 1) return message.reply('Debe mencionar al usuario a desterrar Ψ(｀▽´)Ψ .').catch(console.error);
+        if(!razon) return message.channel.send('Escribe una razon antes de desterrar al usuario ψ`ー´)ﾉ, `-desterrar @username [razón]`');
+        if (!message.guild.member(user).bannable) return message.reply('No puedo desterrar al usuario mencionado. (⋟﹏⋞)');
+        
+    
+        message.guild.member(user).ban(razon);
+        message.channel.send(`(∩｀-´)⊃━炎炎炎炎炎 **${user.username}**, fue desterrado del servidor, razón: ${razon}.`);
+    
+  }})
+
+//Modulo Informacion del Servidor
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'servidor')){
+
+    var server = message.guild;
+  
+    const embed = new Discord.RichEmbed()
+    .setThumbnail(server.iconURL)
+    .setAuthor(server.name, server.iconURL)
+    .addField('ID', server.id, true)
+    .addField('Region', server.region, true)
+    .addField('Creado el', server.joinedAt.toDateString(), true)
+    .addField('Dueño del Servidor', server.owner.user.username+'#'+server.owner.user.discriminator+' ('+server.owner.user.id +')', true)
+    .addField('Miembros', server.memberCount, true)
+    .addField('Roles', server.roles.size, true)
+    .setColor(0x00FF00)
+    
+   message.channel.send({ embed });
+
+  }})
+
+//Modulo Informacion de Usuario
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'usuario')){
+    let userm = message.mentions.users.first()
+    if(!userm){
+      var user = message.author;
+      
+        const embed = new Discord.RichEmbed()
+        .setThumbnail(user.avatarURL)
+        .setAuthor(user.username+'#'+user.discriminator, user.avatarURL)
+        .addField('Jugando a', user.presence.game != null ? user.presence.game.name : "Nada", true)
+        .addField('ID', user.id, true)
+        .addField('Estado', user.presence.status, true)
+        .addField('Apodo', message.member.nickname, true)
+        .addField('Cuenta Creada', user.createdAt.toDateString(), true)
+        .addField('Fecha de Ingreso', message.member.joinedAt.toDateString())
+        .addField('Roles', message.member.roles.map(roles => `\`${roles.name}\``).join(', '))
+        .setColor(0x00FFFF)
+        
+       message.channel.send({ embed });
+    }else{
+      const embed = new Discord.RichEmbed()
+      .setThumbnail(userm.avatarURL)
+      .setAuthor(userm.username+'#'+userm.discriminator, userm.avatarURL)
+      .addField('Jugando a', userm.presence.game != null ? userm.presence.game.name : "Nada", true)
+      .addField('ID', userm.id, true)
+      .addField('Estado', userm.presence.status, true)
+      .addField('Cuenta Creada', userm.createdAt.toDateString(), true)
+      .setColor(0x00FFFF)
+      
+     message.channel.send({ embed });
+    }
+    
+  }})
+
+//Modulo Ayuda
+ client.on("message", (message) => {
+ if(message.content.startsWith(PREFIX + 'ayuda')){
+
+    message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados v(￣∇￣).') .then(m => {
+        m.delete(10000);
+
+ });
+    message.author.send('**Comandos de Puck**\n```\n'+
+                        '-> '+PREFIX+'ping             :: Comprueba la latencia del bot y de tus mensajes.\n'+
+                        '-> '+PREFIX+'avatar <@user>   :: Muestra el avatar de un usuario.\n'+
+                        '-> '+PREFIX+'repetir          :: Hace que el bot diga un mensaje.\n'+
+                        '-> '+PREFIX+'usuario <@user>  :: Muestra información sobre un usuario mencionado.\n'+
+                        '-> '+PREFIX+'servidor         :: Muestra información de un servidor determinado.\n'+
+                        '-> '+PREFIX+'caracolamagica   :: El bot respondera a tus preguntas.\n'+
+                        '-> '+PREFIX+'desterrar <@user>:: Banear a un usuario del servidor incluye razon.\n'+
+                        '-> '+PREFIX+'expulsar <@user> :: Patear a un usuario del servidor incluye razon.\n'+
+                        '-> '+PREFIX+'hola             :: Retorna un saludo como mensaje.\n```\n\n'+
+                        '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
+    
+  }})
+
+//Modulo de Bienvenida
+ client.on("guildMemberAdd", (member) => {
+   console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
+   var canal = client.channels.get('123456789112455845'); 
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
+   
+ });
+//Modulo Purgar
+ client.on("message", (message) => {
+
+  let cont = message.content.slice(PREFIX.length).split(" "); 
+  let args = cont.slice(1); 
+
+    if (message.content.startsWith(PREFIX + 'purgar')) { 
+        
+        async function purge() {
+            message.delete(); 
+
+            
+            if (!message.member.roles.find("name", "admin")) { 
+                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
+                return; 
+            }
+
+            
+            if (isNaN(args[0])) {
+                
+                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + PREFIX + 'purgar <cantidad>'); 
+                
+                return;
+            }
+
+            const fetched = await message.channel.fetchMessages({limit: args[0]}); 
+            console.log(fetched.size + ' mensajes encontrados, borrando...'); 
+
+            
+            message.channel.bulkDelete(fetched)
+                .catch(error => message.channel.send(`Error: ${error}`)); 
+
+        }
+
+        
+        purge();
+        }});
+
+//Modulo de Musica
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
