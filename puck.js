@@ -19,6 +19,16 @@ client.on('disconnect', () => console.log('Desconectado del Server, Reconectando
 
 client.on('reconnecting', () => console.log('Conectado!'));
 
+//Modulos de Respuesta (Ping y Hola)
+ client.on("message", (message) => {
+  if (message.content.startsWith(PREFIX + "ping")) {
+    message.channel.send("pong!");
+  } else
+  if (message.content.startsWith(PREFIX + "hola")) {
+    message.channel.send("Hola que tal?");
+  }
+ });
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
