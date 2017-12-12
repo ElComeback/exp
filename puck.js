@@ -56,12 +56,12 @@ client.on('reconnecting', () => console.log('Conectado!'));
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
-  if(message.content.startsWith(PREFIX + 'repetir')){
+  if(message.content.startsWith(PREFIX + "repetir")){
   
   if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
   message.channel.send(`${args}`);
 
-  if(message.content.startsWith(PREFIX + 'decir')){
+  if(message.content.startsWith(PREFIX + "decir")){
   
  }}})
 
@@ -81,7 +81,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Expulsar
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'expulsar' )){
+ if(message.content.startsWith(PREFIX + "expulsar" )){
 
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
@@ -97,7 +97,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Avatar
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'avatar')){
+ if(message.content.startsWith(PREFIX + "avatar")){
 
       let img = message.mentions.users.first()
       if (!img) {
@@ -127,7 +127,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 //Modulo Destierro
 
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'desterrar' )){
+ if(message.content.startsWith(PREFIX + "desterrar" )){
     
         let user = message.mentions.users.first();
         let razon = args.split(' ').slice(1).join(' ');
@@ -144,7 +144,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Informacion del Servidor
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'servidor')){
+ if(message.content.startsWith(PREFIX + "servidor")){
 
     var server = message.guild;
   
@@ -165,7 +165,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Informacion de Usuario
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'usuario')){
+ if(message.content.startsWith(PREFIX + "usuario")){
     let userm = message.mentions.users.first()
     if(!userm){
       var user = message.author;
@@ -200,7 +200,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Ayuda
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + 'ayuda')){
+ if(message.content.startsWith(PREFIX + "ayuda")){
 
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados v(￣∇￣).') .then(m => {
         m.delete(10000);
@@ -233,7 +233,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
   let cont = message.content.slice(PREFIX.length).split(" "); 
   let args = cont.slice(1); 
 
-    if (message.content.startsWith(PREFIX + 'purgar')) { 
+    if (message.content.startsWith(PREFIX + "purgar")) { 
         
         async function purge() {
             message.delete(); 
