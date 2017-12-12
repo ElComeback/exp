@@ -1,4 +1,4 @@
-const { Client, Util } = require('discord.js');
+const { Discord, Client, Util } = require('discord.js');
 const { PREFIX, TOKEN, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
 const ytdl = require('ytdl-core');
@@ -31,7 +31,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulo Informacion del Desarrollador del Bot
  client.on("message", (message) => {
- if (message.content.startsWith(PREFIX + "desarrollador" )){
+ if (message.content.startsWith(PREFIX + "desarrollador")) {
     const embed = new Discord.RichEmbed() 
     .setTitle("Documentacion de Ayuda de Puck")
     .setAuthor(message.author.username, client.user.avatarURL)
