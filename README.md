@@ -4,7 +4,7 @@ Puck es un proyecto personal para uso en la plataforma Discord, como ayudante en
 
 Desarrollador: El Comeback // Facebook: https://www.facebook.com/erick.ibnlaahad
 
-----------------------------------------------------Registro de Cambios:----------------------------------------------------------
+----------------------------------------------------------Registro de Cambios:----------------------------------------------------------
 
 *Puesta a punto basandose en Heroku (?) 
 
