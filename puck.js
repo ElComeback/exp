@@ -11,7 +11,10 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => console.log('Listo!'));
+ client.on("ready", () => {
+   console.log(`Estoy listo!, conectado en ${client.guilds.size} servidores y  ${client.users.size} usuarios.`);
+   client.user.setGame(prefix+'ayuda |´∀｀●) ');
+ });
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
