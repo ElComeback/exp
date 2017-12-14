@@ -215,15 +215,16 @@ client.on('reconnecting', () => console.log('Conectado!'));
                         '-> '+PREFIX+'desterrar <@usuario>:: Banear a un usuario del servidor incluye razon.\n'+
                         '-> '+PREFIX+'expulsar <@usuario> :: Patear a un usuario del servidor incluye razon.\n'+
                         '-> '+PREFIX+'hola                :: Retorna un saludo como mensaje.\n```\n\n'+
-                        '**Comandos de Puck// Seccion de Reproduccion**\n```\n'+
-				        '-> '+PREFIX+'reproducir <URL Youtube o Nombre> :: Reproduce el multimedia seleccionado.\n'+
+                        
+			'**Comandos de Puck// Seccion de Reproduccion**\n```\n'+
+                        '-> '+PREFIX+'reproducir <URL Youtube o Nombre> :: Reproduce el multimedia seleccionado.\n'+
                         '-> '+PREFIX+'pausa                             :: Pausa la reproduccion del multimedia.\n'+
                         '-> '+PREFIX+'saltar                            :: Salta la reproduccion en curso y continua la siguiente.\n'+
-				        '-> '+PREFIX+'detener                           :: Detiene la reproduccion del multimedia en curso.\n'+
+		        '-> '+PREFIX+'detener                           :: Detiene la reproduccion del multimedia en curso.\n'+
                         '-> '+PREFIX+'volumen <1-10>                    :: Ajusta el volumen de la reproduccion.\n'+
                         '-> '+PREFIX+'estatus                           :: Envia un informe corto sobre el multimedia en curso.\n'+
                         '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
-						'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n'+
+			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n'+
                         '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
     
   }})
