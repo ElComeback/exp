@@ -1,13 +1,11 @@
 #Informacion
 
- _  (`-')                     <-.(`-')  
- \-.(OO )     .->    _         __( OO)  
- _.'    \,--.(,--.   \-,-----.'-'. ,--. 
-(_...--''|  | |(`-')  |  .--./|  .'   / 
-|  |_.' ||  | |(OO ) /_) (`-')|      /) 
-|  .___.'|  | | |  \ ||  |OO )|  .   '  
-|  |     \  '-'(_ .'(_'  '--'\|  |\   \ 
-`--'      `-----'      `-----'`--' '--'                                
+    ____             __  
+   / __ \__  _______/ /__
+  / /_/ / / / / ___/ //_/
+ / ____/ /_/ / /__/ ,<   
+/_/    \__,_/\___/_/|_|  
+                                                    
                                                
 
 Puck es un proyecto personal para uso en la plataforma Discord, como ayudante en la facil administracion y moderacion del mismo.
