@@ -6,14 +6,15 @@ const client = new Client({ disableEveryone: true });
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 const Discord = require("discord.js");
+const bot = new Discord.Client();
 
 client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-Client.on('ready', () => {
-  Client.user.setGame(prefix+'ayuda |´∀｀●) ')
-})
+bot.on('ready', () => {
+  bot.user.setGame(prefix+'ayuda |´∀｀●) ');
+});
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
