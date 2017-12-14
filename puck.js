@@ -224,8 +224,9 @@ client.on('reconnecting', () => console.log('Conectado!'));
                         '-> '+PREFIX+'volumen <1-10>                    :: Ajusta el volumen de la reproduccion.\n'+
                         '-> '+PREFIX+'estatus                           :: Envia un informe corto sobre el multimedia en curso.\n'+
                         '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
-			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n'+
-                        '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
+			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
+                        
+			'**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
     
   }})
 
