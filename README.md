@@ -1,13 +1,12 @@
-#Informacion
+#Infornacion
 
-//      ____             __  
-//     / __ \__  _______/ /__
-//    / /_/ / / / / ___/ //_/
-//   / ____/ /_/ / /__/ ,<   
-//  /_/    \__,_/\___/_/|_|  
-//                           
-                                                    
-                                               
+______           _    
+| ___ \         | |   
+| |_/ /   _  ___| | __
+|  __/ | | |/ __| |/ /
+| |  | |_| | (__|   < 
+\_|   \__,_|\___|_|\_\
+                      
 
 Puck es un proyecto personal para uso en la plataforma Discord, como ayudante en la facil administracion y moderacion del mismo.
 
