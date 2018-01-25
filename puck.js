@@ -48,7 +48,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
-    .addField("Servidor Madre","[*Ether.net*](https://discord.gg/Djja5t3)",true)
+    .addField("Servidor Madre","[*Brauerei Mittagskrug*](https://discord.gg/3da2mKw)",true)
 	.addField("Version Actual","3.0v",true)
     message.channel.send({embed});
   }});
