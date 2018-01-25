@@ -35,6 +35,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
  client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "log")) {
     message.channel.send("Registro de Cambios: -25/01/18: Actualizadas Dependencias del Motor");
+  }
  });
 
 //Modulo Informacion del Desarrollador del Bot
