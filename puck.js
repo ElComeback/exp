@@ -33,7 +33,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 //Log de Cambios
  client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "log")) {
-    message.channel.send("Registro de Cambios: -25/01/18: Actualizadas Dependencias del Motor");
+    message.channel.send("Registro de Cambios: -25/01/18: Actualizadas Dependencias del Motor\n-02/02/18: Limpieza de texto residual al usar el comando de audio y Agregada SETGAME");
   }
  });
 
