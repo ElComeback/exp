@@ -13,7 +13,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => {
-  client.user.setGame('~+ayuda |´∀｀●')
+  client.user.setGame(prefix+'ayuda |´∀｀●) ','https://twitch.tv/truepixels')
 })
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
