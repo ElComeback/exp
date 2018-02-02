@@ -264,7 +264,11 @@ client.on('reconnecting', () => console.log('Conectado!'));
                 message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
                 return; 
             }
-
+        
+            if (!message.member.roles.find("name", "Atdmin")) { 
+                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
+                return; 
+            }
             
             if (isNaN(args[0])) {
                 
