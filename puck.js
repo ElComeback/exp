@@ -260,17 +260,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "admin")) { 
-                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
-                return; 
-            }
-        
-            if (!message.member.roles.find("name", "Admin")) { 
-                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
-                return; 
-            }
-		
-	    if (!message.member.roles.find("name", "Administrador")) { 
+            if (!message.member.roles.find("name", "Administradores")) { 
                 message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
                 return; 
             }
