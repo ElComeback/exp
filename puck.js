@@ -328,7 +328,9 @@ client.on('message', async msg => { // eslint-disable-line
 __** ⌛ Seleccion de Multimedia:**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.
-					`); 
+					`) .then(msg => {
+    msg.delete(10000)
+  }); 
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
