@@ -38,12 +38,11 @@ client.on("message", (message) => {
     .setAuthor(message.author.username, client.user.avatarURL)
     .setColor(0xff0000)
     .setDescription("LOG_PUCK_PRIVATE_GITHUB")
-    .setImage("https://image.flaticon.com/icons/png/512/561/561872.png")
-    .setThumbnail(client.user.avatarURL)
+    .setThumbnail("https://image.flaticon.com/icons/png/512/561/561872.png" )
     .setTimestamp()
     .setURL("")
     .addField("-25/01/18:", "Actualizadas Dependencias del Motor", true)
-    .addField("-02/02/18: Limpieza de texto residual al usar el comando de audio y Agregada SETGAME", true)
+    .addField("-02/02/18:", "Limpieza de texto residual al usar el comando de audio y Agregada SETGAME", true)
     message.channel.send({embed});
   }});
 
