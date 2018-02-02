@@ -12,8 +12,8 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-bot.on('ready', () => {
-  bot.user.setGame('~+ayuda |´∀｀●')
+client.on('ready', () => {
+  client.user.setGame('~+ayuda |´∀｀●')
 })
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
