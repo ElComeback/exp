@@ -338,7 +338,7 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...'); .then(m => {
+						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...') .then(m => {
         m.delete(10000);
 					}
 					const videoIndex = parseInt(response.first().content);
