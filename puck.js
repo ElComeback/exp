@@ -12,10 +12,9 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-bot.on("ready", () => {
-  console.log(`Estoy listo!, conectado en ${client.guilds.size} servidores y  ${client.users.size} usuarios.`);
-  bot.user.setGame(prefix+'ayuda |´∀｀●) ');
-});
+bot.on('ready', () => {
+  bot.user.setGame('prefix+ayuda |´∀｀●) ')
+})
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
@@ -34,7 +33,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 //Log de Cambios
  client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "log")) {
-    message.channel.send("Registro de Cambios: -25/01/18: Actualizadas Dependencias del Motor");
+    message.channel.send("Registro de Cambios: -25/01/18: Actualizadas Dependencias del Motor\n -02/02/18: Bugs Fixed");
   }
  });
 
@@ -260,8 +259,8 @@ client.on('reconnecting', () => console.log('Conectado!'));
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "Administradores")) { 
-                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "admin")) { 
+                message.channel.send('Necesito el rol de \`admin\` para usar este comando （￣へ￣）.'); 
                 return; 
             }
             
@@ -339,7 +338,8 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...');
+						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...') .then(m => {
+							m.delete(5000);
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
