@@ -31,11 +31,24 @@ client.on('reconnecting', () => console.log('Conectado!'));
  });
 
 //Log de Cambios
- client.on("message", (message) => {
-  if (message.content.startsWith(PREFIX + "log")) {
-    message.channel.send("Registro de Cambios: \n-25/01/18: Actualizadas Dependencias del Motor\n-02/02/18: Limpieza de texto residual al usar el comando de audio y Agregada SETGAME");
-  }
- });
+client.on("message", (message) => {
+ if (message.content.startsWith(PREFIX + "desarrollador")) {
+    const embed = new Discord.RichEmbed() 
+    .setTitle("Registro de Cambios")
+    .setAuthor(message.author.username, client.user.avatarURL)
+    .setColor(0xff0000)
+    .setDescription("LOG_PUCK_PRIVATE_GITHUB")
+    .setImage(client.user.avatarURL)
+    .setThumbnail("https://image.flaticon.com/icons/png/512/561/561872.png" )
+    .setTimestamp()
+    .setURL("")
+    .addField("-25/01/18: Actualizadas Dependencias del Motor")
+    .addField("Lenguaje de Programacion", "JavaScript", true)
+    .addField("Region", "Mexico", true)
+    .addField("Sexo del Bot","Masculino", true)
+    .addField("-02/02/18: Limpieza de texto residual al usar el comando de audio y Agregada SETGAME")
+    message.channel.send({embed});
+  }});
 
 //Modulo Informacion del Desarrollador del Bot
  client.on("message", (message) => {
@@ -54,8 +67,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
-    .addField("Servidor Madre","[*Brauerei Mittagskrug*](https://discord.gg/3da2mKw)",true)
-	.addField("Version Actual","3.0v",true)
+	.addField("Version Actual","3.2v",true)
     message.channel.send({embed});
   }});
 
