@@ -12,9 +12,9 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => {
+client.on("ready", () => {
   client.user.setGame(prefix+'ayuda |´∀｀●) ');
-})
+});
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
