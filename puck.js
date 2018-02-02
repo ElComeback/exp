@@ -32,7 +32,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
 
 //Log de Cambios
 client.on("message", (message) => {
- if (message.content.startsWith(PREFIX + "desarrollador")) {
+ if (message.content.startsWith(PREFIX + "log")) {
     const embed = new Discord.RichEmbed() 
     .setTitle("Registro de Cambios")
     .setAuthor(message.author.username, client.user.avatarURL)
