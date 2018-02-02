@@ -12,10 +12,9 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-bot.on("ready", () => {
-  console.log(`Estoy listo!, conectado en ${client.guilds.size} servidores y  ${client.users.size} usuarios.`);
-  bot.user.setGame(prefix+'ayuda |´∀｀●) ');
-});
+bot.on('ready', () => {
+  bot.user.setGame(prefix+'ayuda |´∀｀●')
+})
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
