@@ -64,6 +64,7 @@ client.on("message", (message) => {
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
     .addField("Version Actual","3.2v",true)
+    .addField("Servidor Madre","https://discord.gg/8pU24FM",true)
     message.channel.send({embed});
   }});
 
@@ -267,8 +268,8 @@ client.on("message", (message) => {
                         '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
 			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
                         
-			'**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
-    
+			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
+                        '**Unete a Nuestro Servidor Madre:**\nhttps://discord.gg/8pU24FM');
   }})
 
 //Modulo de Bienvenida
