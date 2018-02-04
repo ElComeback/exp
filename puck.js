@@ -87,6 +87,10 @@ client.on("message", (message) => {
     .addBlankField(true)
     .addField("Puck:", " \`{~}\` \`ayuda\`",)
     .addBlankField(true)
+    .addField("Pleb:", " \`{@Pleb}\` \`help\`",)
+    .addBlankField(true)
+    .addField("Spoti-Search:", " \`{@Spoti-Search}\` \`help\`",)
+    .addBlankField(true)
     .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
     .addBlankField(true)
   message.channel.send({embed});
