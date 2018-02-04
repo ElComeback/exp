@@ -84,6 +84,7 @@ client.on("message", (message) => {
     .addField("PREFIX", "Ecuacion de Comando: \n(PREFIX) + (NOMBRE DEL COMANDO)", true)
     .addBlankField(true)
     .addField("Comandos", "Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)", true)
+    .addBlankField(true)
     .addField("Puck:", ">PREFIX {~} >COMANDO ayuda",)
     .addBlankField(true)
     .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
