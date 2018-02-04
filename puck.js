@@ -73,7 +73,7 @@ client.on("message", (message) => {
  if (message.content.startsWith(PREFIX + "documentacion")) {
     const embed = new Discord.RichEmbed() 
     .setTitle("Documentacion de Ayuda de Puck")
-    .setAuthor("message.author.username", "client.user.avatarURL")
+    .setAuthor(message.author.username, client.user.avatarURL)
     .setColor(0x2EFE2E)
     .setDescription("Bienvenidos a Documentacion.", "Este es un espacio para la gente que requiere el conocimiento necesario para aprovechar el server al 100%. Para la administracion del servidor, hacemos usos de BOTS, automatas digitales que nos hacen la vida mas facil. Para hacer uso de estos bots y usarlos a nuestro beneficio, primero es necesario invocarles. Para ello, siempre se hace uso de un caracter especial", true)
     .setFooter("// Programado por El Comeback //", message.author.avatarURL)
@@ -87,6 +87,7 @@ client.on("message", (message) => {
     .addBlankField(true)
   message.channel.send({embed});
   }});
+  
 
 //Modulo Repetir
  client.on("message", (message) => {
