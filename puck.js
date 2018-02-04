@@ -82,12 +82,12 @@ client.on("message", (message) => {
     .setTimestamp()
     .setURL("")
     .addField("Bienvenidos a Documentacion", "Este es un espacio para la gente que requiere el conocimiento necesario para aprovechar el server al 100%\nPara la administracion del servidor, hacemos usos de BOTS, automatas digitales que nos hacen la vida mas facil.\nPara hacer uso de estos bots y usarlos a nuestro beneficio, primero es necesario invocarles.\nPara ello, siempre se hace uso de un caracter especial", true)
-    .addField("A este Caracter se le llama PREFIX","",false)
+    .addField("A este Caracter se le llama PREFIX")
     .addField("Ecuacion de Comando:", "(PREFIX) + (NOMBRE DEL COMANDO)", true)
-    .addField("Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)","",false)
+    .addField("Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)")
     .addField("Puck","Prefix {~} ayuda --BOT EN ESPAÑOL--", true)
-    .addField("En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte","",false)
-    .addField(">_Fin de la Documentacion.","", true)
+    .addField("En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte")
+    .addField(">_Fin de la Documentacion.")
     message.channel.send({embed});
   }});
 
