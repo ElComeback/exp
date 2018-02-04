@@ -81,7 +81,7 @@ client.on("message", (message) => {
     .setThumbnail("http://www.solution4tech.com/img/support.png" )
     .setTimestamp()
     .setURL("https://discord.gg/8pU24FM")
-    .addField("PREFIX", "Ecuacion de Comando:(PREFIX) + (NOMBRE DEL COMANDO) // Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores) Puck: >PREFIX {~} >COMANDO ayuda", true)
+    .addField("PREFIX", "Ecuacion de Comando: \n(PREFIX) + (NOMBRE DEL COMANDO) // Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores) Puck: >PREFIX {~} >COMANDO ayuda", true)
     .addBlankField(true)  
     .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
     .addBlankField(true)
