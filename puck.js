@@ -83,7 +83,7 @@ client.on("message", (message) => {
     .setURL("https://discord.gg/8pU24FM")
     .addField("A este Caracter se le llama PREFIX \nEcuacion de Comando:(PREFIX) + (NOMBRE DEL COMANDO) \nCada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores) \nPuck: >PREFIX {~} >COMANDO ayuda \nEn caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte")
     .addBlankField(true)  
-    .addField(">_Fin de la Documentacion.","", true) 
+    .addField(">_Fin de la Documentacion.") 
     .addBlankField(true)
   message.channel.send({embed});
   }});
