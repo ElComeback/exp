@@ -245,7 +245,8 @@ client.on("message", (message) => {
                         '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
 			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
                         
-			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
+			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot'
+	                '**Unete a Nuestro Servidor Madre:**\nhttps://discord.gg/8pU24FM');
   }})
 
 //Modulo de Bienvenida
