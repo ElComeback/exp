@@ -63,9 +63,29 @@ client.on("message", (message) => {
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
-    .addField("Version Actual","3.2v",true)
+    .addField("Version Actual","v3.2",true)
     .addField("Servidor Madre","https://discord.gg/8pU24FM",true)
     message.channel.send({embed});
+  }});
+
+//Modulo de Documentacion para Usuarios Novatos
+ client.on("message", (message) => {
+ if (message.content.startsWith(PREFIX + "documentacion")) {
+    const embed = new Discord.RichEmbed() 
+    .setTitle("Documentacion de Ayuda de Puck")
+    .setAuthor("message.author.username", "client.user.avatarURL")
+    .setColor(0x2EFE2E)
+    .setDescription("Bienvenidos a Documentacion. Este es un espacio para la gente que requiere el conocimiento necesario para aprovechar el server al 100%. \nPara la administracion del servidor, hacemos usos de BOTS, automatas digitales que nos hacen la vida mas facil. \nPara hacer uso de estos bots y usarlos a nuestro beneficio, primero es necesario invocarles. \nPara ello, siempre se hace uso de un caracter especial)
+    .setFooter("// Programado por El Comeback //", message.author.avatarURL)
+    .setImage("https://archive-media-0.nyafuu.org/w/image/1426/78/1426782063069.png")
+    .setThumbnail("http://www.solution4tech.com/img/support.png" )
+    .setTimestamp()
+    .setURL("https://discord.gg/8pU24FM")
+    .addField("A este Caracter se le llama PREFIX \nEcuacion de Comando:(PREFIX) + (NOMBRE DEL COMANDO) \nCada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores) \nPuck: >PREFIX {~} >COMANDO ayuda \nEn caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte)
+    .addBlankField(true)  
+    .addField(">_Fin de la Documentacion.","", true) 
+    .addBlankField(true)
+  message.channel.send({embed});
   }});
 
 //Modulo Repetir
