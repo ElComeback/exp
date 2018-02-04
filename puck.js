@@ -276,7 +276,7 @@ client.on("message", (message) => {
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('343469600224182283'); 
+   var canal = client.channels.get('409465176040144899'); 
    canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
    
  });
