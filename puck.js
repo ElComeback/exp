@@ -85,7 +85,7 @@ client.on("message", (message) => {
     .addBlankField(true)
     .addField("Comandos", "Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)", true)
     .addBlankField(true)
-    .addField("Puck:", ">PREFIX {~} >COMANDO ayuda",)
+    .addField("Puck:", "\`>PREFIX {~} >COMANDO ayuda\`",)
     .addBlankField(true)
     .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
     .addBlankField(true)
@@ -292,8 +292,8 @@ client.on("message", (message) => {
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "experimental")) { 
-                message.channel.send('Necesito el rol de \`experimental\` para usar este comando （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "Administrador")) { 
+                message.channel.send('Necesito el rol de \`Administrador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.'); 
                 return; 
             }
             
