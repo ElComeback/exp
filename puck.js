@@ -292,8 +292,8 @@ client.on("message", (message) => {
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "Administrador")) { 
-                message.channel.send('Necesito el rol de \`Administrador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "Programador")) { 
+                message.channel.send('Necesitas el rol de \`Programador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.'); 
                 return; 
             }
             
