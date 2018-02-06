@@ -14,6 +14,7 @@ client.on('error', console.error);
 
 client.on('ready', () => {
   client.user.setGame('~+ayuda |´∀｀●)')
+  client.user.setGame('~+ayuda |´∀｀●)', "https://twitch.com/truepixels");
 })
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
