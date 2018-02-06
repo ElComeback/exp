@@ -12,10 +12,11 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-client.on('ready', () => {
-  client.user.setGame('~+ayuda |´∀｀●)')
-  client.user.setGame('~+ayuda |´∀｀●)', "https://twitch.com/truepixels");
+bot.on('ready', () => {
+bot.user.setPresence({ game: { name: 'En Mantenimiento', type: 2 } });
 })
+
+
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
