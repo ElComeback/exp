@@ -337,7 +337,7 @@ client.on('message', async msg => { // eslint-disable-line
 
 	if (command === `reproducir`) {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('```Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌```');
+		if (!voiceChannel) return msg.channel.send('`Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌`');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
 			return msg.channel.send('눈_눈, No tengo permisos para conectar a tu canal de voz,asegurate de haberme dado los permisos!');
@@ -471,7 +471,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send('(つ >ω●)つ ✅ ```${song.title}``` ha sido agregado al listado de reproducción!');
+		else return msg.channel.send('(つ >ω●)つ ✅ `**${song.title}**` ha sido agregado al listado de reproducción!');
 	}
 	return undefined;
 }
@@ -496,7 +496,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send('♫♪♫♪ Reproduciendo...: ```${song.title}``` ♪～(￣ε￣)');
+	serverQueue.textChannel.send('♫♪♫♪ Reproduciendo...: `${song.title}` ♪～(￣ε￣)');
 }
 
 //Autenticacion del Bot via Config.json
