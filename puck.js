@@ -337,13 +337,13 @@ client.on('message', async msg => { // eslint-disable-line
 
 	if (command === `reproducir`) {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌');
+		if (!voiceChannel) return msg.channel.send('```Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌```');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
-			return msg.channel.send('눈_눈, No tengo permisos para conectar a tu canal de voz,asegurate de haberme dado los permisos!');
+			return msg.channel.send('`눈_눈, No tengo permisos para conectar a tu canal de voz,asegurate de haberme dado los permisos!`');
 		}
 		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('눈_눈, No tengo permitido hablar en este canal de audio, asegurate de haberme dado los permisos!');
+			return msg.channel.send('`눈_눈, No tengo permitido hablar en este canal de audio, asegurate de haberme dado los permisos!`');
 		}
 
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
@@ -377,7 +377,7 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...') .then(msg => {
+						return msg.channel.send('(｀ε´) ,```No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...```') .then(msg => {
     msg.delete(5000)
   });
 					}
@@ -471,7 +471,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(`(つ >ω●)つ ✅ **${song.title}** ha sido agregado al listado de reproducción!`);
+		else return msg.channel.send(`(つ >ω●)つ ✅ ```${song.title}``` ha sido agregado al listado de reproducción!`);
 	}
 	return undefined;
 }
@@ -496,7 +496,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: **${song.title}** ♪～(￣ε￣)`);
+	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: ```${song.title}``` ♪～(￣ε￣)`);
 }
 
 //Autenticacion del Bot via Config.json
