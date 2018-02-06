@@ -12,11 +12,9 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
-bot.on('ready', () => {
-bot.user.setPresence({ game: { name: 'En Reparacion', type: 2 } });
+client.on('ready', () => {
+client.user.setPresence({ game: { name: 'En Reparacion', type: 2 } });
 })
-
-
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
