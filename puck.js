@@ -277,50 +277,6 @@ client.on("message", (message) => {
 			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
 	         }})
 
-//Modulo de Bienvenida
- client.on("guildMemberAdd", (member) => {
-   console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('409465176040144899'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
-   
- });
-//Modulo Purgar
- client.on("message", (message) => {
-
-  let cont = message.content.slice(PREFIX.length).split(" "); 
-  let args = cont.slice(1); 
-
-    if (message.content.startsWith(PREFIX + "purgar")) { 
-        
-        async function purge() {
-            message.delete(); 
-
-            
-            if (!message.member.roles.find("name", "Programador")) { 
-                message.channel.send('Necesitas el rol de \`Programador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.'); 
-                return; 
-            }
-            
-            if (isNaN(args[0])) {
-                
-                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + PREFIX + 'purgar <cantidad>'); 
-                
-                return;
-            }
-
-            const fetched = await message.channel.fetchMessages({limit: args[0]}); 
-            console.log(fetched.size + ' mensajes encontrados, borrando...'); 
-
-            
-            message.channel.bulkDelete(fetched)
-                .catch(error => message.channel.send(`Error: ${error}`)); 
-
-        }
-
-        
-        purge();
-        }});
-
 //Modulo Musica
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
