@@ -290,7 +290,7 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === `reproducir`) {
+	if (command === `play`) {
 		const voiceChannel = msg.member.voiceChannel;
 		if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
@@ -451,7 +451,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: **${```song.title```}** ♪～(￣ε￣)`);
+	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
 }
 
 //Autenticacion del Bot via Config.json
