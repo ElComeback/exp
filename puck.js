@@ -321,8 +321,6 @@ client.on("message", (message) => {
         purge();
         }});
 
-//Modulo de Musica
-
 //Modulo Musica
 const { TOKEN, PREFIX, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
