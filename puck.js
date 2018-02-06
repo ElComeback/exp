@@ -12,8 +12,9 @@ client.on('warn', console.warn);
 
 client.on('error', console.error);
 
+//type=0 = playing | type=1 = streaming |type=2 = listening |type=3 = watching﻿
 client.on('ready', () => {
-client.user.setPresence({ game: { name: 'En Reparacion', type: 2 } });
+client.user.setPresence({ game: { name: 'En Reparacion', type: 3 } });
 })
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
