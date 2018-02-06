@@ -366,7 +366,7 @@ __** ⌛ Seleccion de Multimedia:**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
 Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.
 					`) .then(msg => {
-    msg.delete(10000)
+    msg.delete(15000)
   }); 
 					// eslint-disable-next-line max-depth
 					try {
@@ -378,7 +378,7 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 					} catch (err) {
 						console.error(err);
 						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...') .then(msg => {
-    msg.delete(10000)
+    msg.delete(5000)
   });
 					}
 					const videoIndex = parseInt(response.first().content);
