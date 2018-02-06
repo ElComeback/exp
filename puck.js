@@ -13,7 +13,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 bot.on('ready', () => {
-bot.user.setPresence({ game: { name: 'En Mantenimiento', type: 2 } });
+bot.user.setPresence({ game: { name: 'En Reparacion', type: 2 } });
 })
 
 
