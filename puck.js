@@ -363,7 +363,7 @@ client.on('message', async msg => { // eslint-disable-line
 					let index = 0;
 					msg.channel.send(`
 __\` ⌛ Seleccion de Multimedia:\`__
-\`\`\`${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}\`\`\`
+\`\`\`${videos.map(video2 => `${++index} - ${video2.title}`).join('\n')}\`\`\`
 \`Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.\`
 					`) .then(msg => {
     msg.delete(15000)
