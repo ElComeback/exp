@@ -496,7 +496,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send('♫♪♫♪ Reproduciendo...: \`${song.title}\` ♪～(￣ε￣)');
+	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: \`${song.title}\` ♪～(￣ε￣)`);
 }
 
 //Autenticacion del Bot via Config.json
