@@ -128,19 +128,21 @@ client.on("message", (message) => {
 
 //Modulo Expulsar
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "expulsar" )){
+ if(message.content.startsWith(prefix + 'expulsar' )){
 
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
     
-    if (message.mentions.users.size < 1) return message.reply("Debes mencionar a alguien ( ・・)つ-●●●.").catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply('Debes mencionar a alguien ( ・・)つ-●●●.').catch(console.error);
     if (!razon) return message.channel.send('Escriba la razón de la expulsion （´ヘ｀；）, `-expulsar @username [razón]`');
-    if (!message.guild.member(user).kickable) return message.reply("No puedo expulsar al usuario seleccionado (ﾉ｀□´)ﾉ⌒┻━┻.");
+    if (!message.guild.member(user).kickable) return message.reply('No puedo expulsar al usuario seleccionado (ﾉ｀□´)ﾉ⌒┻━┻.');
      
     message.guild.member(user).kick(razon);
-    message.channel.send(`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ **${user.username}**, fue expulsado del servidor, razón: ${razon}.`);
+    message.channel.send(`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ ${user.username} , fue expulsado del servidor, razón: ${razon}.`);
 
-  }})
+ }})
+
+
 
 //Modulo Avatar
  client.on("message", (message) => {
