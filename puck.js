@@ -276,13 +276,13 @@ client.on("message", (message) => {
 			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
                         
 			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
-	         }})
+	}})
 
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('123456789112455845'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
+   var canal = client.channels.get('409551281363877888'); 
+   canal.send(`${member.user}, Bienvenido a Ether.net 2.0, Sientete libre de usar los canales como desees, por favor te sugerimos contactes a uno de nuestros moderadores para asignarte un rol dependiendo tu pais, y te invitamos a revisar nuestro #reglamento, si necesitas ayuda con los bots revisa nuestro apartado de #documentacion \nDisfruta tu estancia  (´∀｀)♡`);
    
  });
 //Modulo Purgar
@@ -297,8 +297,8 @@ client.on("message", (message) => {
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "admin")) { 
-                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "Fundador")) { 
+                message.channel.send('Necesitas el rol de \`Fundador\` para usar este comando （￣へ￣）.'); 
                 return; 
             }
 
@@ -342,7 +342,7 @@ client.on('message', async msg => { // eslint-disable-line
 		if (!voiceChannel) return msg.channel.send('Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
-			return msg.channel.send('눈_눈, No tengo permisos para conectar a tu canal de voz,asegurate de haberme dado los permisos!');
+			return msg.channel.send('눈_눈, No tengo permisos para conectar a tu canal de voz, asegurate de haberme dado los permisos!');
 		}
 		if (!permissions.has('SPEAK')) {
 			return msg.channel.send('눈_눈, No tengo permitido hablar en este canal de audio, asegurate de haberme dado los permisos!');
@@ -422,7 +422,8 @@ ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 
 **Reproduciendo ahora...: ♪(´ε｀ )** ${serverQueue.songs[0].title}
 		`);
-	} else if (command === `pausa`) {
+	} 
+	else if (command === `pausa`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
@@ -479,7 +480,6 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 	}
 	return undefined;
 }
-
 function play(guild, song) {
 	const serverQueue = queue.get(guild.id);
 
@@ -502,6 +502,5 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send('♫♪♫♪ Reproduciendo...: **${song.title}** ♪～(￣ε￣)');
 }
-
 //Autenticacion del Bot via Config.json
 client.login(process.env.BOT_TOKEN); 
