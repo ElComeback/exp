@@ -322,7 +322,7 @@ client.on("message", (message) => {
         }});
 
 //Modulo de Musica
-
+//Para hacer embed texto con constantes, usa "\`"
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
@@ -471,7 +471,7 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(`(つ >ω●)つ ✅ **${song.title}** ha sido agregado al listado de reproducción!`);
+		else return msg.channel.send(`\`(つ >ω●)つ ✅\` \`\`\`${song.title}\`\`\` \`ha sido agregado al listado de reproducción!\``);
 	}
 	return undefined;
 }
