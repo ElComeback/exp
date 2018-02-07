@@ -14,7 +14,7 @@ const queue = new Map();
 const bot = new Discord.Client();
 const content = message.content.split(' ').slice(1);
 const args = content.join(' ');
-const fetched = await message.channel.fetchMessages({ limit: args[0] });
+
 //Avisos a la consola
 client.on('warn', console.warn);
 client.on('error', console.error);
@@ -250,35 +250,37 @@ client.on("message", (message) => {
                                                             '**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
                                                     } else
                                                         //Purgar
-                                                        if (message.content.startsWith(PREFIX + "purgar")) {
+                                                        let cont = message.content.slice(PREFIX.length).split(" ");
+    let args = cont.slice(1);
+    if (message.content.startsWith(PREFIX + "purgar")) {
 
-                                                            async function purge() {
-                                                                message.delete();
-
-
-                                                                if (!message.member.roles.find("name", "Programador")) {
-                                                                    message.channel.send('Necesitas el rol de \`Programador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.');
-                                                                    return;
-                                                                }
-
-                                                                if (isNaN(args[0])) {
-
-                                                                    message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + PREFIX + 'purgar <cantidad>');
-
-                                                                    return;
-                                                                }
-
-                                                                console.log(fetched.size + ' mensajes encontrados, borrando...');
+        async function purge() {
+            message.delete();
 
 
-                                                                message.channel.bulkDelete(fetched)
-                                                                    .catch(error => message.channel.send(`Error: ${error}`));
+            if (!message.member.roles.find("name", "Programador")) {
+                message.channel.send('Necesitas el rol de \`Programador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.');
+                return;
+            }
 
-                                                            }
+            if (isNaN(args[0])) {
+
+                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + PREFIX + 'purgar <cantidad>');
+
+                return;
+            }
+            const fetched = await message.channel.fetchMessages({ limit: args[0] });
+            console.log(fetched.size + ' mensajes encontrados, borrando...');
 
 
-                                                            purge();
-                                                        }
+            message.channel.bulkDelete(fetched)
+                .catch(error => message.channel.send(`Error: ${error}`));
+
+        }
+
+
+        purge();
+    }
 });
 
 
