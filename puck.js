@@ -1,35 +1,54 @@
-const Discord = require("discord.js");
-const client = new Discord.Client();
-const ytdl = require("ytdl-core");
+const { Client, Util } = require('discord.js');
+const { PREFIX, TOKEN, GOOGLE_API_KEY } = require('./config');
 const YouTube = require('simple-youtube-api');
-const {GOOGLE_API_KEY } = require('./config');
+const ytdl = require('ytdl-core');
 const client = new Client({ disableEveryone: true });
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
+const Discord = require("discord.js");
+const bot = new Discord.Client();
 
-//NOTA IMPORTANTE, PARA INICIAR LA ELABORACION DE CADA MODULO, RECUERDA USAR EL EVENTO CLIENT.ON READY
+client.on('warn', console.warn);
 
-//Estado del Bot
- client.on("ready", () => {
-   console.log(`Estoy listo!, conectado en ${client.guilds.size} servidores y  ${client.users.size} usuarios.`);
-   client.user.setGame(prefix+'ayuda |´∀｀●) ');
- });
+client.on('error', console.error);
 
-//Definicion de la variable Prefijo via Config.json
-var prefix = [~];
+client.on('ready', () => {
+  client.user.setGame('~+ayuda |´∀｀●)')
+})
+
+client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
+
+client.on('reconnecting', () => console.log('Conectado!'));
 
 //Modulos de Respuesta (Ping y Hola)
  client.on("message", (message) => {
-  if (message.content.startsWith(prefix + "ping")) {
+  if (message.content.startsWith(PREFIX + "ping")) {
     message.channel.send("pong!");
   } else
-  if (message.content.startsWith(prefix + "hola")) {
+  if (message.content.startsWith(PREFIX + "hola")) {
     message.channel.send("Hola que tal?");
   }
  });
+
+//Log de Cambios
+client.on("message", (message) => {
+ if (message.content.startsWith(PREFIX + "log")) {
+    const embed = new Discord.RichEmbed() 
+    .setTitle("Registro de Cambios")
+    .setAuthor(message.author.username, client.user.avatarURL)
+    .setColor(0xff0000)
+    .setDescription("LOG_PUCK_PRIVATE_GITHUB")
+    .setThumbnail("https://image.flaticon.com/icons/png/512/561/561872.png" )
+    .setTimestamp()
+    .setURL("")
+    .addField("-25/01/18:", "Actualizadas Dependencias del Motor", true)
+    .addField("-02/02/18:", "Limpieza de texto residual al usar el comando de audio y Agregada SETGAME", true)
+    message.channel.send({embed});
+  }});
+
 //Modulo Informacion del Desarrollador del Bot
  client.on("message", (message) => {
- if (message.content.startsWith(prefix + "desarrollador" )){
+ if (message.content.startsWith(PREFIX + "desarrollador")) {
     const embed = new Discord.RichEmbed() 
     .setTitle("Documentacion de Ayuda de Puck")
     .setAuthor(message.author.username, client.user.avatarURL)
@@ -44,9 +63,39 @@ var prefix = [~];
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
-    .addField("Servidor Madre","[*Ether.net*](https://discord.gg/Djja5t3)",true)
+    .addField("Version Actual","v3.2",true)
+    .addField("Servidor Madre","https://discord.gg/8pU24FM",true)
     message.channel.send({embed});
   }});
+
+//Modulo de Documentacion para Usuarios Novatos
+ client.on("message", (message) => {
+ if (message.content.startsWith(PREFIX + "documentacion")) {
+    const embed = new Discord.RichEmbed() 
+    .setTitle("Documentacion de Ayuda de Puck")
+    .setAuthor(message.author.username, client.user.avatarURL)
+    .setColor(0x2EFE2E)
+    .setDescription("Bienvenidos a Documentacion.", "Este es un espacio para la gente que requiere el conocimiento necesario para aprovechar el server al 100%. Para la administracion del servidor, hacemos usos de BOTS, automatas digitales que nos hacen la vida mas facil. Para hacer uso de estos bots y usarlos a nuestro beneficio, primero es necesario invocarles. Para ello, siempre se hace uso de un caracter especial", true)
+    .setFooter("// Programado por El Comeback //", message.author.avatarURL)
+    .setImage("https://archive-media-0.nyafuu.org/w/image/1426/78/1426782063069.png")
+    .setThumbnail("http://www.solution4tech.com/img/support.png" )
+    .setTimestamp()
+    .setURL("https://discord.gg/8pU24FM")
+    .addField("PREFIX", "Ecuacion de Comando: \n\`(PREFIX)\` + \`(NOMBRE DEL COMANDO)\`", true)
+    .addBlankField(true)
+    .addField("Comandos", "Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)", true)
+    .addBlankField(true)
+    .addField("Puck:", " \`{~}\` \`ayuda\`",)
+    .addBlankField(true)
+    .addField("Pleb:", " \`{@Pleb}\` \`help\`",)
+    .addBlankField(true)
+    .addField("Spoti-Search:", " \`{@Spoti-Search}\` \`help\`",)
+    .addBlankField(true)
+    .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
+    .addBlankField(true)
+  message.channel.send({embed});
+  }});
+  
 
 //Modulo Repetir
  client.on("message", (message) => {
@@ -54,12 +103,12 @@ var prefix = [~];
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
-  if(message.content.startsWith(prefix + 'repetir')){
+  if(message.content.startsWith(PREFIX + "repetir")){
   
   if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
   message.channel.send(`${args}`);
 
-  if(message.content.startsWith(prefix + 'decir')){
+  if(message.content.startsWith(PREFIX + "decir")){
   
  }}})
 
@@ -69,7 +118,7 @@ var prefix = [~];
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
- if(message.content.startsWith(prefix + "caracolamagica")){
+ if(message.content.startsWith(PREFIX + "caracolamagica")){
 
   var rpts = ["Sí (｀▽´) ", "No (｀ε´) ", "¿Por qué? (*´∀｀）", "No lo creo ┐(ﾟ～ﾟ)┌ ", "Tal vez ( ͡° ͜ʖ ͡°) ", "No sé ┐(´∀｀)┌ ", "Lo dudo ◉︵◉ ", " ¡Claro! o(｀^´*) "," Sí b(￣▽￣*) "," No ⋋_⋌ "," Por supuesto! (｀∇´ゞ "," Por supuesto que no (｀ε´)"];
   if (!args) return message.reply("Escribe una pregunta a responder (꒪⌓꒪).");
@@ -79,7 +128,7 @@ var prefix = [~];
 
 //Modulo Expulsar
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'expulsar' )){
+ if(message.content.startsWith(PREFIX + "expulsar" )){
 
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
@@ -95,7 +144,7 @@ var prefix = [~];
 
 //Modulo Avatar
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'avatar')){
+ if(message.content.startsWith(PREFIX + "avatar")){
 
       let img = message.mentions.users.first()
       if (!img) {
@@ -125,7 +174,7 @@ var prefix = [~];
 //Modulo Destierro
 
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'desterrar' )){
+ if(message.content.startsWith(PREFIX + "desterrar" )){
     
         let user = message.mentions.users.first();
         let razon = args.split(' ').slice(1).join(' ');
@@ -142,7 +191,7 @@ var prefix = [~];
 
 //Modulo Informacion del Servidor
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'servidor')){
+ if(message.content.startsWith(PREFIX + "servidor")){
 
     var server = message.guild;
   
@@ -163,7 +212,7 @@ var prefix = [~];
 
 //Modulo Informacion de Usuario
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'usuario')){
+ if(message.content.startsWith(PREFIX + "usuario")){
     let userm = message.mentions.users.first()
     if(!userm){
       var user = message.author;
@@ -198,54 +247,63 @@ var prefix = [~];
 
 //Modulo Ayuda
  client.on("message", (message) => {
- if(message.content.startsWith(prefix + 'ayuda')){
+ if(message.content.startsWith(PREFIX + "ayuda")){
 
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados v(￣∇￣).') .then(m => {
         m.delete(10000);
 
  });
-    message.author.send('**Comandos de Puck**\n```\n'+
-                        '-> '+prefix+'ping             :: Comprueba la latencia del bot y de tus mensajes.\n'+
-                        '-> '+prefix+'avatar <@user>   :: Muestra el avatar de un usuario.\n'+
-                        '-> '+prefix+'repetir          :: Hace que el bot diga un mensaje.\n'+
-                        '-> '+prefix+'usuario <@user>  :: Muestra información sobre un usuario mencionado.\n'+
-                        '-> '+prefix+'servidor         :: Muestra información de un servidor determinado.\n'+
-                        '-> '+prefix+'caracolamagica   :: El bot respondera a tus preguntas.\n'+
-                        '-> '+prefix+'desterrar <@user>:: Banear a un usuario del servidor incluye razon.\n'+
-                        '-> '+prefix+'expulsar <@user> :: Patear a un usuario del servidor incluye razon.\n'+
-                        '-> '+prefix+'hola             :: Retorna un saludo como mensaje.\n```\n\n'+
-                        '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
-    
-  }})
+    message.author.send('**Comandos de Puck// Seccion General**\n```\n'+
+                        '-> '+PREFIX+'ping                :: Comprueba la latencia del bot y de tus mensajes.\n'+
+                        '-> '+PREFIX+'avatar <@usuario>   :: Muestra el avatar de un usuario.\n'+
+                        '-> '+PREFIX+'repetir             :: Hace que el bot diga un mensaje.\n'+
+                        '-> '+PREFIX+'usuario <@usuario>  :: Muestra información sobre un usuario mencionado.\n'+
+                        '-> '+PREFIX+'servidor            :: Muestra información de un servidor determinado.\n'+
+                        '-> '+PREFIX+'caracolamagica      :: El bot respondera a tus preguntas.\n'+
+                        '-> '+PREFIX+'desterrar <@usuario>:: Banear a un usuario del servidor incluye razon.\n'+
+                        '-> '+PREFIX+'expulsar <@usuario> :: Patear a un usuario del servidor incluye razon.\n'+
+                        '-> '+PREFIX+'hola                :: Retorna un saludo como mensaje.\n```\n\n'+
+                        
+			'**Comandos de Puck// Seccion de Reproduccion**\n```\n'+
+                        '-> '+PREFIX+'reproducir <URL Youtube o Nombre> :: Reproduce el multimedia seleccionado.\n'+
+                        '-> '+PREFIX+'pausa                             :: Pausa la reproduccion del multimedia.\n'+
+                        '-> '+PREFIX+'saltar                            :: Salta la reproduccion en curso y continua la siguiente.\n'+
+		        '-> '+PREFIX+'detener                           :: Detiene la reproduccion del multimedia en curso.\n'+
+                        '-> '+PREFIX+'volumen <1-10>                    :: Ajusta el volumen de la reproduccion.\n'+
+                        '-> '+PREFIX+'estatus                           :: Envia un informe corto sobre el multimedia en curso.\n'+
+                        '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
+			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
+                        
+			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
+	         }})
 
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('123456789112455845'); 
+   var canal = client.channels.get('409465176040144899'); 
    canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
    
  });
 //Modulo Purgar
  client.on("message", (message) => {
 
-  let cont = message.content.slice(prefix.length).split(" "); 
+  let cont = message.content.slice(PREFIX.length).split(" "); 
   let args = cont.slice(1); 
 
-    if (message.content.startsWith(prefix + 'purgar')) { 
+    if (message.content.startsWith(PREFIX + "purgar")) { 
         
         async function purge() {
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "admin")) { 
-                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "Programador")) { 
+                message.channel.send('Necesitas el rol de \`Programador\` para usar este comando, si no lo tienes, asignatelo （￣へ￣）.'); 
                 return; 
             }
-
             
             if (isNaN(args[0])) {
                 
-                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + prefix + 'purgar <cantidad>'); 
+                message.channel.send('Porfavor, escribe la cantidad de mensajes que deseas eliminar de forma numerica (￣▽￣)V. \n Uso: ' + PREFIX + 'purgar <cantidad>'); 
                 
                 return;
             }
@@ -263,9 +321,7 @@ var prefix = [~];
         purge();
         }});
 
-//******DEPURACION DE ERRORES*******//
-
-//Modulo Musica
+//Modulo de Musica
 
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
@@ -279,15 +335,15 @@ client.on('message', async msg => { // eslint-disable-line
 	let command = msg.content.toLowerCase().split(" ")[0];
 	command = command.slice(PREFIX.length)
 
-	if (command === `play`) {
+	if (command === `reproducir`) {
 		const voiceChannel = msg.member.voiceChannel;
-		if (!voiceChannel) return msg.channel.send('I\'m sorry but you need to be in a voice channel to play music!');
+		if (!voiceChannel) return msg.channel.send('Lo siento, pero necesitas estar en un canal de voz para funcionar ┐(￣ヘ￣)┌');
 		const permissions = voiceChannel.permissionsFor(msg.client.user);
 		if (!permissions.has('CONNECT')) {
-			return msg.channel.send('I cannot connect to your voice channel, make sure I have the proper permissions!');
+			return msg.channel.send('눈_눈, No tengo permisos para conectar a tu canal de voz,asegurate de haberme dado los permisos!');
 		}
 		if (!permissions.has('SPEAK')) {
-			return msg.channel.send('I cannot speak in this voice channel, make sure I have the proper permissions!');
+			return msg.channel.send('눈_눈, No tengo permitido hablar en este canal de audio, asegurate de haberme dado los permisos!');
 		}
 
 		if (url.match(/^https?:\/\/(www.youtube.com|youtube.com)\/playlist(.*)$/)) {
@@ -297,7 +353,7 @@ client.on('message', async msg => { // eslint-disable-line
 				const video2 = await youtube.getVideoByID(video.id); // eslint-disable-line no-await-in-loop
 				await handleVideo(video2, msg, voiceChannel, true); // eslint-disable-line no-await-in-loop
 			}
-			return msg.channel.send(`✅ Playlist: **${playlist.title}** has been added to the queue!`);
+			return msg.channel.send(`♪～(￣ε￣) La lista de Reproduccion: **${playlist.title}** ha sido agregadá al listado de reproducción.`);
 		} else {
 			try {
 				var video = await youtube.getVideo(url);
@@ -306,12 +362,12 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					msg.channel.send(`
-__**Song selection:**__
-
+__** ⌛ Seleccion de Multimedia:**__
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
-
-Please provide a value to select one of the search results ranging from 1-10.
-					`);
+Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.
+					`) .then(msg => {
+    msg.delete(15000)
+  }); 
 					// eslint-disable-next-line max-depth
 					try {
 						var response = await msg.channel.awaitMessages(msg2 => msg2.content > 0 && msg2.content < 11, {
@@ -321,61 +377,61 @@ Please provide a value to select one of the search results ranging from 1-10.
 						});
 					} catch (err) {
 						console.error(err);
-						return msg.channel.send('No or invalid value entered, cancelling video selection.');
+						return msg.channel.send('(｀ε´) ,No se ha insertado el valor o es incorrecto, Cancelando la seleccion del multimedia...') .then(msg => {
+    msg.delete(5000)
+  });
 					}
 					const videoIndex = parseInt(response.first().content);
 					var video = await youtube.getVideoByID(videos[videoIndex - 1].id);
 				} catch (err) {
 					console.error(err);
-					return msg.channel.send('🆘 I could not obtain any search results.');
+					return msg.channel.send('（・∩・）No he obtenido ningun resultado.');
 				}
 			}
 			return handleVideo(video, msg, voiceChannel);
 		}
-	} else if (command === `skip`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
-		if (!serverQueue) return msg.channel.send('There is nothing playing that I could skip for you.');
-		serverQueue.connection.dispatcher.end('Skip command has been used!');
+	} else if (command === `saltar`) {
+		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz! (⋋▂⋌)');
+		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose como para saltarlo. ( ｰ`дｰ´)');
+		serverQueue.connection.dispatcher.end('Se ha saltado el multimedia (￣▽￣)V');
 		return undefined;
-	} else if (command === `stop`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
-		if (!serverQueue) return msg.channel.send('There is nothing playing that I could stop for you.');
+	} else if (command === `detener`) {
+		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz! (⋋▂⋌)');
+		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose como para detenerlo. ( ｰ`дｰ´)');
 		serverQueue.songs = [];
-		serverQueue.connection.dispatcher.end('Stop command has been used!');
+		serverQueue.connection.dispatcher.end('Se ha detenido el multimedia! (￣▽￣)V');
 		return undefined;
-	} else if (command === `volume`) {
-		if (!msg.member.voiceChannel) return msg.channel.send('You are not in a voice channel!');
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		if (!args[1]) return msg.channel.send(`The current volume is: **${serverQueue.volume}**`);
+	} else if (command === `volumen`) {
+		if (!msg.member.voiceChannel) return msg.channel.send('No estas en un canal de voz! (⋋▂⋌)');
+		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose.（｀ー´）');
+		if (!args[1]) return msg.channel.send(`El volumen actual es: **${serverQueue.volume}** (⌐▨_▨)`);
 		serverQueue.volume = args[1];
 		serverQueue.connection.dispatcher.setVolumeLogarithmic(args[1] / 5);
-		return msg.channel.send(`I set the volume to: **${args[1]}**`);
-	} else if (command === `np`) {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
-		return msg.channel.send(`🎶 Now playing: **${serverQueue.songs[0].title}**`);
-	} else if (command === `queue`) {
-		if (!serverQueue) return msg.channel.send('There is nothing playing.');
+		return msg.channel.send(`ヽ( ・∀・)ノ● , Ajustando el volumen a: **${args[1]}** ...`);
+	} else if (command === `estatus`) {
+		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose.');
+		return msg.channel.send(`♫♪♫♪ Reproduciendo ahora...: **${serverQueue.songs[0].title}** ♪～(￣ε￣)`);
+	} else if (command === `listado`) {
+		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose (⋟﹏⋞)');
 		return msg.channel.send(`
-__**Song queue:**__
-
+__**。。。(ノ＿　＿)ノ Listado de multimedia:**__
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
-
-**Now playing:** ${serverQueue.songs[0].title}
+**Reproduciendo ahora...: ♪(´ε｀ )** ${serverQueue.songs[0].title}
 		`);
-	} else if (command === `pause`) {
+	} else if (command === `pausa`) {
 		if (serverQueue && serverQueue.playing) {
 			serverQueue.playing = false;
 			serverQueue.connection.dispatcher.pause();
-			return msg.channel.send('⏸ Paused the music for you!');
+			return msg.channel.send('⏸ ﾍ(･_|Pausando la reproduccion...');
 		}
-		return msg.channel.send('There is nothing playing.');
-	} else if (command === `resume`) {
+		return msg.channel.send('No hay nada reproduciendose.');
+	} else if (command === `continuar`) {
 		if (serverQueue && !serverQueue.playing) {
 			serverQueue.playing = true;
 			serverQueue.connection.dispatcher.resume();
-			return msg.channel.send('▶ Resumed the music for you!');
+			return msg.channel.send('|ω・｀)ノ▶ Reproduciendo...!');
 		}
-		return msg.channel.send('There is nothing playing.');
+		return msg.channel.send('No hay nada reproduciendose. ヘ(´－｀;)ヘ');
 	}
 
 	return undefined;
@@ -407,15 +463,15 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(msg.guild, queueConstruct.songs[0]);
 		} catch (error) {
-			console.error(`I could not join the voice channel: ${error}`);
+			console.error(` (눈_눈), No puedo unirme al canal de voz: ${error}`);
 			queue.delete(msg.guild.id);
-			return msg.channel.send(`I could not join the voice channel: ${error}`);
+			return msg.channel.send(` (눈_눈) , No puedo unirme al canal de voz: ${error}`);
 		}
 	} else {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(`✅ **${song.title}** has been added to the queue!`);
+		else return msg.channel.send(`(つ >ω●)つ ✅ **${song.title}** ha sido agregado al listado de reproducción!`);
 	}
 	return undefined;
 }
@@ -432,7 +488,7 @@ function play(guild, song) {
 
 	const dispatcher = serverQueue.connection.playStream(ytdl(song.url))
 		.on('end', reason => {
-			if (reason === 'Stream is not generating quickly enough.') console.log('Song ended.');
+			if (reason === 'La conexion ha tardado demaciado. (;´д｀) ') console.log('Reproduccion Terminada.');
 			else console.log(reason);
 			serverQueue.songs.shift();
 			play(guild, serverQueue.songs[0]);
@@ -440,7 +496,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send(`🎶 Start playing: **${song.title}**`);
+	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: **${song.title}** ♪～(￣ε￣)`);
 }
 
 //Autenticacion del Bot via Config.json
