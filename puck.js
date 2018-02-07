@@ -281,7 +281,7 @@ client.on("message", (message) => {
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
    var canal = client.channels.get('409551281363877888'); 
-   canal.send(`Bienvenido \`${member.user}\`, a Ether.net 2.0, Sientete libre de usar los canales a tu gusto, ante cualquier duda con los bots echa un vistazo a nuestro canal #documentacion, tambien te invitamos a revisar el #reglamento, y sin mas, disfruta tu estancia (´∀｀)♡`);
+   canal.send(`\`Bienvenido\` ${member.user}, \`a Ether.net 2.0, Sientete libre de usar los canales a tu gusto, ante cualquier duda con los bots echa un vistazo a nuestro canal #documentacion, tambien te invitamos a revisar el #reglamento, y sin mas, disfruta tu estancia (´∀｀)♡\``);
    
  });
 //Modulo Purgar
