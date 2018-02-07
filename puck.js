@@ -1,55 +1,35 @@
-const { Client, Util } = require('discord.js');
-const { PREFIX, TOKEN, GOOGLE_API_KEY } = require('./config');
+const Discord = require("discord.js");
+const client = new Discord.Client();
+const ytdl = require("ytdl-core");
 const YouTube = require('simple-youtube-api');
-const ytdl = require('ytdl-core');
+const {GOOGLE_API_KEY } = require('./config');
 const client = new Client({ disableEveryone: true });
 const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
-const Discord = require('discord.js');
-const bot = new Discord.Client();
 
-client.on('warn', console.warn);
+//NOTA IMPORTANTE, PARA INICIAR LA ELABORACION DE CADA MODULO, RECUERDA USAR EL EVENTO CLIENT.ON READY
 
-client.on('error', console.error);
+//Estado del Bot
+ client.on("ready", () => {
+   console.log(`Estoy listo!, conectado en ${client.guilds.size} servidores y  ${client.users.size} usuarios.`);
+   client.user.setGame(prefix+'ayuda |´∀｀●) ');
+ });
 
-//type=0 = playing | type=1 = streaming |type=2 = listening |type=3 = watching﻿
-client.on('ready', () => {
-client.user.setPresence({ game: { name: 'En Reparacion', type: 3 } });
-})
-
-client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
-
-client.on('reconnecting', () => console.log('Conectado!'));
+//Definicion de la variable Prefijo via Config.json
+var prefix = [~];
 
 //Modulos de Respuesta (Ping y Hola)
  client.on("message", (message) => {
-  if (message.content.startsWith(PREFIX + "ping")) {
+  if (message.content.startsWith(prefix + "ping")) {
     message.channel.send("pong!");
   } else
-  if (message.content.startsWith(PREFIX + "hola")) {
+  if (message.content.startsWith(prefix + "hola")) {
     message.channel.send("Hola que tal?");
   }
  });
-
-//Log de Cambios
-client.on("message", (message) => {
- if (message.content.startsWith(PREFIX + "log")) {
-    const embed = new Discord.RichEmbed() 
-    .setTitle("Registro de Cambios")
-    .setAuthor(message.author.username, client.user.avatarURL)
-    .setColor(0xff0000)
-    .setDescription("LOG_PUCK_PRIVATE_GITHUB")
-    .setThumbnail("https://image.flaticon.com/icons/png/512/561/561872.png" )
-    .setTimestamp()
-    .setURL("")
-    .addField("-25/01/18:", "Actualizadas Dependencias del Motor", true)
-    .addField("-02/02/18:", "Limpieza de texto residual al usar el comando de audio y Agregada SETGAME", true)
-    message.channel.send({embed});
-  }});
-
 //Modulo Informacion del Desarrollador del Bot
  client.on("message", (message) => {
- if (message.content.startsWith(PREFIX + "desarrollador")) {
+ if (message.content.startsWith(prefix + "desarrollador" )){
     const embed = new Discord.RichEmbed() 
     .setTitle("Documentacion de Ayuda de Puck")
     .setAuthor(message.author.username, client.user.avatarURL)
@@ -64,39 +44,9 @@ client.on("message", (message) => {
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
-    .addField("Version Actual","v3.2",true)
-    .addField("Servidor Madre","https://discord.gg/8pU24FM",true)
+    .addField("Servidor Madre","[*Ether.net*](https://discord.gg/Djja5t3)",true)
     message.channel.send({embed});
   }});
-
-//Modulo de Documentacion para Usuarios Novatos
- client.on("message", (message) => {
- if (message.content.startsWith(PREFIX + "documentacion")) {
-    const embed = new Discord.RichEmbed() 
-    .setTitle("Documentacion de Ayuda de Puck")
-    .setAuthor(message.author.username, client.user.avatarURL)
-    .setColor(0x2EFE2E)
-    .setDescription("Bienvenidos a Documentacion.", "Este es un espacio para la gente que requiere el conocimiento necesario para aprovechar el server al 100%. Para la administracion del servidor, hacemos usos de BOTS, automatas digitales que nos hacen la vida mas facil. Para hacer uso de estos bots y usarlos a nuestro beneficio, primero es necesario invocarles. Para ello, siempre se hace uso de un caracter especial", true)
-    .setFooter("// Programado por El Comeback //", message.author.avatarURL)
-    .setImage("https://archive-media-0.nyafuu.org/w/image/1426/78/1426782063069.png")
-    .setThumbnail("http://www.solution4tech.com/img/support.png" )
-    .setTimestamp()
-    .setURL("https://discord.gg/8pU24FM")
-    .addField("PREFIX", "Ecuacion de Comando: \n\`(PREFIX)\` + \`(NOMBRE DEL COMANDO)\`", true)
-    .addBlankField(true)
-    .addField("Comandos", "Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)", true)
-    .addBlankField(true)
-    .addField("Puck:", " \`{~}\` \`ayuda\`",)
-    .addBlankField(true)
-    .addField("Pleb:", " \`{@Pleb}\` \`help\`",)
-    .addBlankField(true)
-    .addField("Spoti-Search:", " \`{@Spoti-Search}\` \`help\`",)
-    .addBlankField(true)
-    .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
-    .addBlankField(true)
-  message.channel.send({embed});
-  }});
-  
 
 //Modulo Repetir
  client.on("message", (message) => {
@@ -104,12 +54,12 @@ client.on("message", (message) => {
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
-  if(message.content.startsWith(PREFIX + "repetir")){
+  if(message.content.startsWith(prefix + 'repetir')){
   
   if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
   message.channel.send(`${args}`);
 
-  if(message.content.startsWith(PREFIX + "decir")){
+  if(message.content.startsWith(prefix + 'decir')){
   
  }}})
 
@@ -119,7 +69,7 @@ client.on("message", (message) => {
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
 
- if(message.content.startsWith(PREFIX + "caracolamagica")){
+ if(message.content.startsWith(prefix + "caracolamagica")){
 
   var rpts = ["Sí (｀▽´) ", "No (｀ε´) ", "¿Por qué? (*´∀｀）", "No lo creo ┐(ﾟ～ﾟ)┌ ", "Tal vez ( ͡° ͜ʖ ͡°) ", "No sé ┐(´∀｀)┌ ", "Lo dudo ◉︵◉ ", " ¡Claro! o(｀^´*) "," Sí b(￣▽￣*) "," No ⋋_⋌ "," Por supuesto! (｀∇´ゞ "," Por supuesto que no (｀ε´)"];
   if (!args) return message.reply("Escribe una pregunta a responder (꒪⌓꒪).");
@@ -129,7 +79,7 @@ client.on("message", (message) => {
 
 //Modulo Expulsar
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "expulsar" )){
+ if(message.content.startsWith(prefix + 'expulsar' )){
 
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
@@ -145,7 +95,7 @@ client.on("message", (message) => {
 
 //Modulo Avatar
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "avatar")){
+ if(message.content.startsWith(prefix + 'avatar')){
 
       let img = message.mentions.users.first()
       if (!img) {
@@ -175,7 +125,7 @@ client.on("message", (message) => {
 //Modulo Destierro
 
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "desterrar" )){
+ if(message.content.startsWith(prefix + 'desterrar' )){
     
         let user = message.mentions.users.first();
         let razon = args.split(' ').slice(1).join(' ');
@@ -192,7 +142,7 @@ client.on("message", (message) => {
 
 //Modulo Informacion del Servidor
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "servidor")){
+ if(message.content.startsWith(prefix + 'servidor')){
 
     var server = message.guild;
   
@@ -213,7 +163,7 @@ client.on("message", (message) => {
 
 //Modulo Informacion de Usuario
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "usuario")){
+ if(message.content.startsWith(prefix + 'usuario')){
     let userm = message.mentions.users.first()
     if(!userm){
       var user = message.author;
@@ -248,41 +198,31 @@ client.on("message", (message) => {
 
 //Modulo Ayuda
  client.on("message", (message) => {
- if(message.content.startsWith(PREFIX + "ayuda")){
+ if(message.content.startsWith(prefix + 'ayuda')){
 
     message.channel.send('**'+message.author.username+'**, Revisa tus mensajes privados v(￣∇￣).') .then(m => {
         m.delete(10000);
 
  });
-    message.author.send('**Comandos de Puck// Seccion General**\n```\n'+
-                        '-> '+PREFIX+'ping                :: Comprueba la latencia del bot y de tus mensajes.\n'+
-                        '-> '+PREFIX+'avatar <@usuario>   :: Muestra el avatar de un usuario.\n'+
-                        '-> '+PREFIX+'repetir             :: Hace que el bot diga un mensaje.\n'+
-                        '-> '+PREFIX+'usuario <@usuario>  :: Muestra información sobre un usuario mencionado.\n'+
-                        '-> '+PREFIX+'servidor            :: Muestra información de un servidor determinado.\n'+
-                        '-> '+PREFIX+'caracolamagica      :: El bot respondera a tus preguntas.\n'+
-                        '-> '+PREFIX+'desterrar <@usuario>:: Banear a un usuario del servidor incluye razon.\n'+
-                        '-> '+PREFIX+'expulsar <@usuario> :: Patear a un usuario del servidor incluye razon.\n'+
-                        '-> '+PREFIX+'hola                :: Retorna un saludo como mensaje.\n```\n\n'+
-                        
-			'**Comandos de Puck// Seccion de Reproduccion**\n```\n'+
-                        '-> '+PREFIX+'reproducir <URL Youtube o Nombre> :: Reproduce el multimedia seleccionado.\n'+
-                        '-> '+PREFIX+'pausa                             :: Pausa la reproduccion del multimedia.\n'+
-                        '-> '+PREFIX+'saltar                            :: Salta la reproduccion en curso y continua la siguiente.\n'+
-		        '-> '+PREFIX+'detener                           :: Detiene la reproduccion del multimedia en curso.\n'+
-                        '-> '+PREFIX+'volumen <1-10>                    :: Ajusta el volumen de la reproduccion.\n'+
-                        '-> '+PREFIX+'estatus                           :: Envia un informe corto sobre el multimedia en curso.\n'+
-                        '-> '+PREFIX+'listado                           :: Muestra el listado de multimedias creado por el usuario.\n'+
-			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
-                        
-			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
-	}})
+    message.author.send('**Comandos de Puck**\n```\n'+
+                        '-> '+prefix+'ping             :: Comprueba la latencia del bot y de tus mensajes.\n'+
+                        '-> '+prefix+'avatar <@user>   :: Muestra el avatar de un usuario.\n'+
+                        '-> '+prefix+'repetir          :: Hace que el bot diga un mensaje.\n'+
+                        '-> '+prefix+'usuario <@user>  :: Muestra información sobre un usuario mencionado.\n'+
+                        '-> '+prefix+'servidor         :: Muestra información de un servidor determinado.\n'+
+                        '-> '+prefix+'caracolamagica   :: El bot respondera a tus preguntas.\n'+
+                        '-> '+prefix+'desterrar <@user>:: Banear a un usuario del servidor incluye razon.\n'+
+                        '-> '+prefix+'expulsar <@user> :: Patear a un usuario del servidor incluye razon.\n'+
+                        '-> '+prefix+'hola             :: Retorna un saludo como mensaje.\n```\n\n'+
+                        '**Puck - Ether.net // Servidor Madre :**\nhttps://discord.gg/Djja5t3');
+    
+  }})
 
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('409551281363877888'); 
-   canal.send(`${member.user}, Bienvenido a Ether.net 2.0, Sientete libre de usar los canales como desees, por favor te sugerimos contactes a uno de nuestros moderadores para asignarte un rol dependiendo tu pais, y te invitamos a revisar nuestro #reglamento, si necesitas ayuda con los bots revisa nuestro apartado de #documentacion \nDisfruta tu estancia  (´∀｀)♡`);
+   var canal = client.channels.get('123456789112455845'); 
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
    
  });
 //Modulo Purgar
@@ -297,8 +237,8 @@ client.on("message", (message) => {
             message.delete(); 
 
             
-            if (!message.member.roles.find("name", "Fundador")) { 
-                message.channel.send('Necesitas el rol de \`Fundador\` para usar este comando （￣へ￣）.'); 
+            if (!message.member.roles.find("name", "admin")) { 
+                message.channel.send('Necesitas el rol de \`admin\` para usar este comando （￣へ￣）.'); 
                 return; 
             }
 
@@ -323,7 +263,10 @@ client.on("message", (message) => {
         purge();
         }});
 
+//******DEPURACION DE ERRORES*******//
+
 //Modulo Musica
+
 client.on('message', async msg => { // eslint-disable-line
 	if (msg.author.bot) return undefined;
 	if (!msg.content.startsWith(PREFIX)) return undefined;
