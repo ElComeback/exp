@@ -23,10 +23,10 @@ client.on('reconnecting', () => console.log('Conectado!'));
 //Modulos de Respuesta (Ping y Hola)
  client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "ping")) {
-    message.channel.send("\`\`\`pong!\`\`\`");
+    message.channel.send("pong!");
   } else
   if (message.content.startsWith(PREFIX + "hola")) {
-    message.channel.send("\`\`\`Hola que tal?\`\`\`");
+    message.channel.send("Hola que tal?");
   }
  });
 
@@ -105,7 +105,7 @@ client.on("message", (message) => {
 
   if(message.content.startsWith(PREFIX + "repetir")){
   
-  if(!args) return message.channel.send(`\`\`\`Escriba lo que desea que yo repita （￣＾￣）.\`\`\``);
+  if(!args) return message.channel.send(`Escriba lo que desea que yo repita （￣＾￣）.`);
   message.channel.send(`${args}`);
 
   if(message.content.startsWith(PREFIX + "decir")){
@@ -133,12 +133,12 @@ client.on("message", (message) => {
     let user = message.mentions.users.first();
     let razon = args.split(' ').slice(1).join(' ');
     
-    if (message.mentions.users.size < 1) return message.reply('\`\`\`Debes mencionar a alguien ( ・・)つ-●●●.\`\`\`').catch(console.error);
+    if (message.mentions.users.size < 1) return message.reply("Debes mencionar a alguien ( ・・)つ-●●●.").catch(console.error);
     if (!razon) return message.channel.send('Escriba la razón de la expulsion （´ヘ｀；）, `-expulsar @username [razón]`');
-    if (!message.guild.member(user).kickable) return message.reply('\`\`\`No puedo expulsar al usuario seleccionado (ﾉ｀□´)ﾉ⌒┻━┻.\`\`\`');
+    if (!message.guild.member(user).kickable) return message.reply("No puedo expulsar al usuario seleccionado (ﾉ｀□´)ﾉ⌒┻━┻.");
      
     message.guild.member(user).kick(razon);
-    message.channel.send(`\`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ\` \`\`\`${user.username}\`\`\` \`fue expulsado del servidor\` \`razón:\` ${razon}.`);
+    message.channel.send(`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ **${user.username}**, fue expulsado del servidor, razón: ${razon}.`);
 
   }})
 
@@ -157,7 +157,7 @@ client.on("message", (message) => {
 
       } else if (img.avatarURL === null) {
 
-          message.channel.sendMessage("\`Nuestro amigo\` \`\`\`("+ img.username +")\`\`\` \`no tiene avatar! ԅ(¯﹃¯ԅ)\`");
+          message.channel.sendMessage("Nuestro amigo ("+ img.username +") no tiene avatar! ԅ(¯﹃¯ԅ)");
 
       } else {
 
@@ -179,13 +179,13 @@ client.on("message", (message) => {
         let user = message.mentions.users.first();
         let razon = args.split(' ').slice(1).join(' ');
     
-        if (message.mentions.users.size < 1) return message.reply('\`\`\`Debe mencionar al usuario a desterrar Ψ(｀▽´)Ψ .\`\`\`').catch(console.error);
+        if (message.mentions.users.size < 1) return message.reply('Debe mencionar al usuario a desterrar Ψ(｀▽´)Ψ .').catch(console.error);
         if(!razon) return message.channel.send('Escribe una razon antes de desterrar al usuario ψ`ー´)ﾉ, `-desterrar @username [razón]`');
-        if (!message.guild.member(user).bannable) return message.reply('\`\`\`No puedo desterrar al usuario mencionado. (⋟﹏⋞)\`\`\`');
+        if (!message.guild.member(user).bannable) return message.reply('No puedo desterrar al usuario mencionado. (⋟﹏⋞)');
         
     
         message.guild.member(user).ban(razon);
-        message.channel.send(`\`(∩｀-´)⊃━炎炎炎炎炎\` \`\`\`${user.username}\`\`\` \`fue desterrado del servidor\` \`razón:\` ${razon}.`);
+        message.channel.send(`(∩｀-´)⊃━炎炎炎炎炎 **${user.username}**, fue desterrado del servidor, razón: ${razon}.`);
     
   }})
 
@@ -280,8 +280,8 @@ client.on("message", (message) => {
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('409551281363877888'); 
-   canal.send(`\`Bienvenido\` ${member.user}, \`a Ether.net 2.0, Sientete libre de usar los canales a tu gusto, ante cualquier duda con los bots echa un vistazo a nuestro canal #documentacion, tambien te invitamos a revisar el #reglamento, y sin mas, disfruta tu estancia (´∀｀)♡\``);
+   var canal = client.channels.get('409465176040144899'); 
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
    
  });
 //Modulo Purgar
