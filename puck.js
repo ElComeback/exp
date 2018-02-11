@@ -498,6 +498,5 @@ function play(guild, song) {
 
 	serverQueue.textChannel.send(`♫♪♫♪ Reproduciendo...: **${song.title}** ♪～(￣ε￣)`);
 }
-
 //Autenticacion del Bot via Config.json
 client.login(process.env.BOT_TOKEN); 
