@@ -13,8 +13,13 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => {
-  client.user.setGame('~+ayuda |´∀｀●)')
+  client.user.setPresence({ game: { name: '~+ayuda |´∀｀●)', type: 1 } });
 })
+                                                                                               /*type=0 = playing  
+                                                                                                 type=1 = streaming  
+                                                                                                  type=2 = listening 
+                                                                                                   type=3 = watching﻿*/
+
 
 client.on('disconnect', () => console.log('Desconectado del Server, Reconectando...'));
 
