@@ -206,8 +206,8 @@ client.on("message", (message) => {
     var server = message.guild;
   
     const embed = new Discord.RichEmbed()
-    .setImage(server.iconURL)
-    .setAuthor(server.name, server.iconURL)
+    .setImage(server.avatarURL)
+    .setAuthor(client.user.avatarURL)
     .addField('ID', server.id, true)
     .addField('Region', server.region, true)
     .addField('Creado el', server.joinedAt.toDateString(), true)
