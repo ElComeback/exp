@@ -206,7 +206,7 @@ client.on("message", (message) => {
     var server = message.guild;
   
     const embed = new Discord.RichEmbed()
-    .setThumbnail(server.iconURL)
+    .setImage(server.iconURL)
     .setAuthor(server.name, server.iconURL)
     .addField('ID', server.id, true)
     .addField('Region', server.region, true)
