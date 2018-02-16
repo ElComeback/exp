@@ -46,6 +46,7 @@ client.on("message", (message) => {
     .setURL("")
     .addField("-25/01/18:", "Actualizadas Dependencias del Motor", true)
     .addField("-02/02/18:", "Limpieza de texto residual al usar el comando de audio y Agregada SETGAME", true)
+    .addField("16/02/18:", "Ajustados valores de SETPRESENCE a Transmitiendo", true)
     message.channel.send({embed});
   }});
 
@@ -62,7 +63,7 @@ client.on("message", (message) => {
     .setThumbnail("https://icon-icons.com/icons2/571/PNG/512/warning-weather-interface-outlined-symbol_icon-icons.com_54630.png" )
     .setTimestamp()
     .setURL("http://craterdev.com/documentacion-mybot")
-    .addField("Acerca de Puck","Puck es un personaje originario del Manga/Anime 'Berserk', en el cual es un elfo que acompaña al heroe Guts, durante su duro trayecto, siempre denotando una actitud carismatica y bromista, ideal de todo buen compañero de batalla, ahora, le hemos logrado adaptar como un bot para satisfacer tus necesidades en el servidor")
+    .addField("Acerca de Puck","Puck es un personaje originario del Manga/Anime 'Berserk', en el cual es un elfo que acompaña al heroe Guts, durante su duro trayecto, siempre denotando una actitud carismatica y bromista, ideal de todo buen compañero de batalla//Bot de Uso Privado para el Servidor Ethernetv2.0")
     .addField("Lenguaje de Programacion", "JavaScript", true)
     .addField("Region", "Mexico", true)
     .addField("Sexo del Bot","Masculino", true)
@@ -90,11 +91,17 @@ client.on("message", (message) => {
     .addBlankField(true)
     .addField("Puck:", " \`{~}\` \`ayuda\`",)
     .addBlankField(true)
-    .addField("Pleb:", " \`{@Pleb}\` \`help\`",)
+    .addField("Aki:", " \`{!aki}\` \`help\`",)
     .addBlankField(true)
-    .addField("Spoti-Search:", " \`{@Spoti-Search}\` \`help\`",)
+    .addField("Rythm:", " \`{!}\` \`help\`",)
     .addBlankField(true)
-    .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el Administrador o cualquier usuario con el Rol Soporte", true) 
+    .addField("Sagiri:", " \`{.}\` \`help\`",)
+    .addBlankField(true)
+    .addField("Steam:", " \`{steam}\` \`help\`",)
+    .addBlankField(true)
+    .addField("Translate:", " \`{:t}\` \`help\`",)
+    .addBlankField(true)
+    .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el `Administrador` o cualquier usuario con el Rol `Moderador`", true) 
     .addBlankField(true)
   message.channel.send({embed});
   }});
