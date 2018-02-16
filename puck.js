@@ -13,7 +13,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => {
-  client.user.setPresence({ game: { name: '~+ayuda |´∀｀●)', type: 2 } })
+  client.user.setPresence({ game: { name: '~+ayuda |´∀｀●)', type: 1 } })
 });
                                                                                                /*type=0 = playing  
                                                                                                  type=1 = streaming  
