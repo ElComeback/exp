@@ -293,7 +293,7 @@ client.on("message", (message) => {
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
    var canal = client.channels.get('409551281363877888'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#409465176040144900> , puedes usar todos los canales que desees, Oh, por cierto, Aqui nos manejamos por roles de Pais, Porfavor, contacta a un \`Moderador\` para que te asigne un ROL segun tu Pais, si tu rol no es asignado en las siguientes 48 horas, serás eliminado de discord, evitanoslo hacerlo >-< \n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a revisar el canal #documentacion `);
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#409465176040144900> , puedes usar todos los canales que desees, Oh, por cierto, Aqui nos manejamos por roles de Pais, Porfavor, contacta a un \`Moderador\` para que te asigne un ROL segun tu Pais, si tu rol no es asignado en las siguientes 48 horas, serás eliminado de discord, evitanoslo hacerlo >-< \n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a revisar el canal <#409549061272764416> `);
    
  });
 //Modulo Purgar
