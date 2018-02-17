@@ -29,7 +29,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
     message.channel.send("pong!");
   } else
   if (message.content.startsWith(PREFIX + "hola")) {
-    message.channel.send("Hola que tal?");
+    message.channel.send("Chinga tu madre, nah, no es cierto, Hola! (￣▽￣)V ");
   }
  });
 
@@ -292,8 +292,8 @@ client.on("message", (message) => {
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
-   var canal = client.channels.get('409465176040144899'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡`);
+   var canal = client.channels.get('409551281363877888'); 
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro #reglamento, puedes usar todos los canales que desees, Oh, por cierto, Aqui nos manejamos por roles de Pais, Porfavor, contacta a un \`Moderador\` para que te asigne un ROL segun tu Pais, si tu rol no es asignado en las siguientes 48 horas, serás eliminado de discord, evitanoslo hacerlo >-< \n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a revisar el canal #Documentacion`);
    
  });
 //Modulo Purgar
