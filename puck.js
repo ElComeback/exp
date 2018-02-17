@@ -202,14 +202,14 @@ client.on("message", (message) => {
   }})
 
 //Modulo Informacion del Servidor
- client.on("message", (message) => {
+client.on("message", (message) => {
  if(message.content.startsWith(PREFIX + "servidor")){
 
     var server = message.guild;
   
     const embed = new Discord.RichEmbed()
-    .setImage(server.avatarURL)
-    .setAuthor(client.user.avatarURL)
+    .setThumbnail(server.iconURL)
+    .setAuthor(client.name, client.iconURL)
     .addField('ID', server.id, true)
     .addField('Region', server.region, true)
     .addField('Creado el', server.joinedAt.toDateString(), true)
