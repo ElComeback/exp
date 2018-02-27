@@ -313,7 +313,7 @@ message.channel.send({embed})
         m.react("1\u20e3");
         m.react("2\u20e3");
 
-});
+})
  });
 
 //Adicion de Rol Automatico
