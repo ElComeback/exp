@@ -298,9 +298,8 @@ client.on("message", (message) => {
 
 //Generador de Encuestas
  client.on("message", (message) => {
-if(message.content.startsWith(PREFIX + "ayuda")){
+if(message.content.startsWith(PREFIX + "encuesta")){
 if(!args) return message.channel.send('Agrege una pregunta para la encuesta.')
-
 const embed = new Discord.RichEmbed()
       .setAuthor('Pregunta:')
       .setDescription('**'+args+'**\n▔▔▔▔▔▔▔▔▔▔▔')
@@ -313,7 +312,7 @@ message.channel.send({embed})
 .then(m => {
         m.react("1\u20e3");
         m.react("2\u20e3");
-}});
+ })}});
 
 //Adicion de Rol Automatico
 client.on("guildMemberAdd", member => {
