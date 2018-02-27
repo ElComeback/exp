@@ -298,7 +298,7 @@ client.on("message", (message) => {
 
 //Generador de Encuestas
  client.on("message", (message) => {
-	 
+if(message.content.startsWith(PREFIX + "encuesta")){
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
  
@@ -318,7 +318,7 @@ message.channel.send({embed})
         m.react("2\u20e3");
 
 })
- });
+}});
 
 //Adicion de Rol Automatico
 client.on("guildMemberAdd", member => {
