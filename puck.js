@@ -296,6 +296,25 @@ client.on("message", (message) => {
    canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#409465176040144900> , puedes usar todos los canales que desees,\n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a revisar el canal <#409549061272764416> `);
  });
 
+//Generador de Encuestas
+ client.on("message", (message) => {
+if(message.content.startsWith(PREFIX + "ayuda")){
+if(!args) return message.channel.send('Agrege una pregunta para la encuesta.')
+
+const embed = new Discord.RichEmbed()
+      .setAuthor('Pregunta:')
+      .setDescription('**'+args+'**\n▔▔▔▔▔▔▔▔▔▔▔')
+      .addField('Opcion 1', '1\u20e3 Si')
+      .addField('Opcion 2', '2\u20e3 No')
+      .setColor(0xff4d4d)
+      .setTimestamp()
+
+message.channel.send({embed})
+.then(m => {
+        m.react("1\u20e3");
+        m.react("2\u20e3");
+}});
+
 //Adicion de Rol Automatico
 client.on("guildMemberAdd", member => {
 console.log(`${member.user.username}+ ' se ha unido al servidor!`)
