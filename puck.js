@@ -122,7 +122,7 @@ client.on("message", (message) => {
 
   if(message.content.startsWith(PREFIX + "decir")){
   
- }}})
+ }}});
 
 //Modulo Caracola Magica
  client.on("message", (message) => {
@@ -136,7 +136,7 @@ client.on("message", (message) => {
   if (!args) return message.reply("Escribe una pregunta a responder (꒪⌓꒪).");
   message.channel.send(message.member.user+' mi respuesta es: `'+ rpts[Math.floor(Math.random() * rpts.length)]+'`');
 
- }})
+ }});
 
 //Modulo Expulsar
  client.on("message", (message) => {
@@ -152,7 +152,7 @@ client.on("message", (message) => {
     message.guild.member(user).kick(razon);
     message.channel.send(`(∩｀-´)⊃━☆ﾟ.*･｡ﾟ **${user.username}**, fue expulsado del servidor, razón: ${razon}.`);
 
-  }})
+  }});
 
 //Modulo Avatar
  client.on("message", (message) => {
@@ -181,7 +181,7 @@ client.on("message", (message) => {
 
       };
 
-        }})
+        }});
 
 //Modulo Destierro
 
@@ -199,7 +199,7 @@ client.on("message", (message) => {
         message.guild.member(user).ban(razon);
         message.channel.send(`(∩｀-´)⊃━炎炎炎炎炎 **${user.username}**, fue desterrado del servidor, razón: ${razon}.`);
     
-  }})
+  }});
 
 //Modulo Informacion del Servidor
 client.on("message", (message) => {
@@ -220,7 +220,7 @@ client.on("message", (message) => {
     
    message.channel.send({ embed });
 
-  }})
+  }});
 
 //Modulo Informacion de Usuario
  client.on("message", (message) => {
@@ -255,7 +255,7 @@ client.on("message", (message) => {
      message.channel.send({ embed });
     }
     
-  }})
+  }});
 
 //Modulo Ayuda
  client.on("message", (message) => {
@@ -287,7 +287,7 @@ client.on("message", (message) => {
 			'-> '+PREFIX+'continuar                         :: Continua la reproduccion de un multimedia en pausa.\n```\n\n'+
                         
 			'**Puck - Ether.net v.2.0 // Invitame a tu Server :**\nhttps://discordapp.com/oauth2/authorize?client_id=380938693147361290&permissions=8&scope=bot');
-	         }})
+	         }});
 
 //Modulo de Bienvenida
  client.on("guildMemberAdd", (member) => {
@@ -298,7 +298,11 @@ client.on("message", (message) => {
 
 //Generador de Encuestas
  client.on("message", (message) => {
-if(!args) return message.channel.send('Agrege una pregunta para la encuesta.')
+	 
+ const content = message.content.split(' ').slice(1);
+ const args = content.join(' ');
+ 
+if(!args) return message.channel.send(`Agrege una pregunta para la encuesta.`)
 
 const embed = new Discord.RichEmbed()
       .setAuthor('Pregunta:')
