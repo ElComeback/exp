@@ -305,7 +305,7 @@ if(message.content.startsWith(PREFIX + "encuesta")){
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
  
-if(!args) return message.channel.send(`Asigne una pregunta para la encuesta (つ﹏<。) . Ejemplo:\n \`~\` \`Aqui tu pregunta\` `)
+if(!args) return message.channel.send(`Asigne una pregunta para la encuesta (つ﹏<。). Ejemplo:\n \`~encuesta\` \`Aqui tu pregunta\` `)
 
 const embed = new Discord.RichEmbed()
       .setAuthor('Pregunta:')
