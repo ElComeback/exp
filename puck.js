@@ -274,6 +274,7 @@ client.on("message", (message) => {
                         '-> '+PREFIX+'caracolamagica      :: El bot respondera a tus preguntas.\n'+
                         '-> '+PREFIX+'desterrar <@usuario>:: Banear a un usuario del servidor incluye razon.\n'+
                         '-> '+PREFIX+'expulsar <@usuario> :: Patear a un usuario del servidor incluye razon.\n'+
+			'-> '+PREFIX+'encuesta <Pregunta> :: Crea una encuesta simple con una pregunta definida por el usuario.\n'+
                         '-> '+PREFIX+'hola                :: Retorna un saludo como mensaje.\n```\n\n'+
                         
 			'**Comandos de Puck// Seccion de Reproduccion**\n```\n'+
@@ -304,7 +305,7 @@ if(message.content.startsWith(PREFIX + "encuesta")){
  const content = message.content.split(' ').slice(1);
  const args = content.join(' ');
  
-if(!args) return message.channel.send(`Agrege una pregunta para la encuesta.`)
+if(!args) return message.channel.send(`Asigne una pregunta para la encuesta ∩´﹏`∩ . Ejemplo:\n \`~\` \`Aqui tu pregunta\` `)
 
 const embed = new Discord.RichEmbed()
       .setAuthor('Pregunta:')
