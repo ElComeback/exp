@@ -298,10 +298,10 @@ client.on("message", (message) => {
 
 //Adicion de Rol Automatico
 
-client.on("guildMemberAdd", member => {
+client.on("guildMemberAdd", (member) => {
 
-console.log('User ' + member.username + 'se ha unido al servidor!')
-var role=member.guild.roles.find('name','Miembros'); 
+console.log(`${member.user.username} se ha unido al servidor!`)
+var role = member.guild.roles.find('name', 'Miembros'); 
 member.addRole(role)
 });
 
