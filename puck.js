@@ -309,7 +309,7 @@ const embed = new Discord.RichEmbed()
       .setDescription('**'+args+'**\n▔▔▔▔▔▔▔▔▔▔▔')
       .addField('Opcion 1', '1\u20e3 Si')
       .addField('Opcion 2', '2\u20e3 No')
-      .setColor(0xff4d4d)
+      .setColor(0xfdf953)
       .setTimestamp()
 
 message.channel.send({embed})
