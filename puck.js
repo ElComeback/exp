@@ -299,6 +299,11 @@ client.on("message", (message) => {
   member.addRole(role)
  });
 
+//Modulo de Despedida
+client.on("guildMemberRemove", (member) => {
+member.guild.channels.get('').send('**' + member.user.username + '**, ha abandonado el server, Rest in Peace 💀);
+});
+				   
 //Generador de Encuestas
  client.on("message", (message) => {
 if(message.content.startsWith(PREFIX + "encuesta")){
@@ -322,6 +327,8 @@ message.channel.send({embed})
 
 })
 }});
+
+
 
 //Modulo Purgar
  client.on("message", (message) => {
