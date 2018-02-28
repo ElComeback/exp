@@ -301,7 +301,7 @@ client.on("message", (message) => {
 
 //Modulo de Despedida
 client.on("guildMemberRemove", (member) => {
-member.guild.channels.get('').send('**' + member.user.username + '**, ha abandonado el server, Rest in Peace 💀);
+member.guild.channels.get('').send('**' + member.user.username + '**, ha abandonado el server, Rest in Peace 💀');
 });
 				   
 //Generador de Encuestas
