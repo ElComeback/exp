@@ -14,7 +14,7 @@
   "author": "El Comeback",
   "license": "GNUv3",
   "dependencies": {
-    "opusscript": "0.0.6",
+    "node-opus": "0.2.7",
     "discord.js": "^11.3.2",
     "simple-youtube-api": "^5.0.1",
     "ytdl-core": "^0.20.2"
