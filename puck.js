@@ -409,9 +409,9 @@ client.on('message', async msg => { // eslint-disable-line
 					var videos = await youtube.searchVideos(searchString, 10);
 					let index = 0;
 					msg.channel.send(`
-__** ⌛ Seleccion de Multimedia:**__
+\`\`⌛ Seleccion de Multimedia:\`\`
 ${videos.map(video2 => `**${++index} -** ${video2.title}`).join('\n')}
-Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.
+\`\`Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1 al 10 (○^ω^)_旦~~♪.\`\`
 					`) .then(msg => {
     msg.delete(15000)
   }); 
@@ -461,7 +461,7 @@ Porfavor coloca un valor numerico referente a tu resultado en la busqueda, del 1
 	} else if (command === `listado`) {
 		if (!serverQueue) return msg.channel.send('No hay nada reproduciendose (⋟﹏⋞)');
 		return msg.channel.send(`
-__**。。。(ノ＿　＿)ノ Listado de multimedia:**__
+\`\`。。。(ノ＿　＿)ノ Listado de multimedia:\`\`
 ${serverQueue.songs.map(song => `**-** ${song.title}`).join('\n')}
 **Reproduciendo ahora...: ♪(´ε｀ )** ${serverQueue.songs[0].title}
 		`);
@@ -510,15 +510,15 @@ async function handleVideo(video, msg, voiceChannel, playlist = false) {
 			queueConstruct.connection = connection;
 			play(msg.guild, queueConstruct.songs[0]);
 		} catch (error) {
-			console.error(` (눈_눈), No puedo unirme al canal de voz: ${error}`);
+			console.error(` **(눈_눈),** \`No puedo unirme al canal de voz:\` \`\`\`${error}\`\`\``);
 			queue.delete(msg.guild.id);
-			return msg.channel.send(` (눈_눈) , No puedo unirme al canal de voz: ${error}`);
+			return msg.channel.send(` **(눈_눈),** \`No puedo unirme al canal de voz:\` \`\`\`${error}\`\`\``);
 		}
 	} else {
 		serverQueue.songs.push(song);
 		console.log(serverQueue.songs);
 		if (playlist) return undefined;
-		else return msg.channel.send(`(つ >ω●)つ ✅ **${song.title}** ha sido agregado al listado de reproducción!`);
+		else return msg.channel.send(`\`(つ >ω●)つ\` ✅ \`\`\`${song.title}\`\`\` \`\`ha sido agregado al listado de reproducción!\`\``);
 	}
 	return undefined;
 }
@@ -543,7 +543,7 @@ function play(guild, song) {
 		.on('error', error => console.error(error));
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
-	serverQueue.textChannel.send(`\`\`\`♫♪♫♪ Reproduciendo...:\`\`\` \`${song.title}\` ♪～(￣ε￣)`);
+	serverQueue.textChannel.send(`\`♫♪♫♪ Reproduciendo...:\` \`\`\`${song.title}\`\`\` ♪～(￣ε￣)`);
 }
 
 //Autenticacion del Bot via Config.json
