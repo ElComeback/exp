@@ -13,7 +13,7 @@ client.on('warn', console.warn);
 client.on('error', console.error);
 
 client.on('ready', () => {
-  client.user.setPresence({ game: { name: '~+ayuda |´∀｀●)', url: 'https://www.twitch.tv/erick6201', type: 1 } })
+  client.user.setPresence({ game: { name: '~+ayuda |´∀｀●)', url: 'https://www.twitch.tv/erick6201', type: 3 } })
 });
                                                                                                /*type=0 = playing  
                                                                                                  type=1 = streaming  
@@ -90,8 +90,6 @@ client.on("message", (message) => {
     .addField("Comandos", "Cada BOT tiene determinados comandos los cuales son enlistados aqui: (Nota: Estos comandos solo son para enviar la lista de los comando preestablecidos en cada uno de los servidores)", true)
     .addBlankField(true)
     .addField("Puck:", " \`{~}\` \`ayuda\`",)
-    .addBlankField(true)
-    .addField("Aki:", " \`{!aki}\` \`help\`",)
     .addBlankField(true)
     .addField("Rythm:", " \`{!}\` \`help\`",)
     .addBlankField(true)
@@ -294,7 +292,7 @@ client.on("message", (message) => {
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
    var canal = client.channels.get('409551281363877888'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#409465176040144900> , puedes usar todos los canales que desees,\n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a revisar el canal <#409549061272764416> `);
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#433456401206083604> , puedes usar todos los canales que desees,\n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a usar el comando Documentacion. Ejemplo: ~documentacion`);
   var role = member.guild.roles.find("name", "♿ Miembros"); 
   member.addRole(role)
  });
