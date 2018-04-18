@@ -292,8 +292,8 @@ client.on("message", (message) => {
  client.on("guildMemberAdd", (member) => {
    console.log(`${member.user.username} se ha unido a ${member.guild.name}.`);
    var canal = client.channels.get('409551281363877888'); 
-   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#433456401206083604> , puedes usar todos los canales que desees,\n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a usar el comando Documentacion. Ejemplo: ~documentacion`);
-  var role = member.guild.roles.find("name", "♿ Miembros"); 
+   canal.send(`${member.user}, disfruta tu estancia (´∀｀)♡, te invitamos a leer nuestro <#433456401206083604> , puedes usar todos los canales que desees,\n Si necesitas ayuda para usar a alguno de nuestros \`Bots\` te invitamos a usar el comando Documentacion. Ejemplo: ~documentacion, si deseas pertenecer legitimamente al server, te recomendamos hablar con uno de nuestros Vigilantes del Aula para agregarte. Buena suerte!`);
+  var role = member.guild.roles.find("name", "♿ Nuevos"); 
   member.addRole(role)
  });
 
