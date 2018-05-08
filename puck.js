@@ -29,7 +29,7 @@ client.on('reconnecting', () => console.log('Conectado!'));
     message.channel.send("pong!");
   } else
   if (message.content.startsWith(PREFIX + "hola")) {
-    message.channel.send("Chinga tu madre, nah, no es cierto, Hola! (￣▽￣)V ");
+    message.channel.send("...");
   }
  });
 
