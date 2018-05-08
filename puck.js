@@ -97,8 +97,6 @@ client.on("message", (message) => {
     .addBlankField(true)
     .addField("Steam:", " \`{steam}\` \`help\`",)
     .addBlankField(true)
-    .addField("Translate:", " \`{:t}\` \`help\`",)
-    .addBlankField(true)
     .addField("Tatsumaki:", " \`{t!}\` \`help\`",)
     .addBlankField(true)
     .addField(">_Fin de la Documentacion", "En caso de cualquier error o dificultad para ejecutar cualquiera de estos BOTS, favor de dirigirse con el `Administrador` o cualquier usuario con el Rol `Moderador`", true) 
