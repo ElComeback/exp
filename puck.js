@@ -534,7 +534,7 @@ function play(guild, song) {
 	serverQueue.textChannel.send(`\`\`♫♪♫♪ Reproduciendo...:\`\` \`\`\`${song.title}\`\`\` ♪～(￣ε￣)`);
 	
 	const embed = new Discord.RichEmbed()
-          .setImage(`${song.thumbnails.medium}`)
+          .setImage(`${song.thumbnails}`)
           .setColor(0x66b3ff)
           .setFooter(`Thumbnail`);
           message.channel.send({ embed });
