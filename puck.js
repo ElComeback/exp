@@ -532,14 +532,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`\`\`♫♪♫♪ Reproduciendo...:\`\` \`\`\`${song.title}\`\`\` ♪～(￣ε￣)`);
-	
-	//funcion
-	const embed = new Discord.RichEmbed()
-	const vidthumb = ${song.thumbnails}
-          .setImage({vidthumb});
-          .setColor(0x66b3ff)
-          .setFooter(`Thumbnail`);
-          message.channel.send({ embed });
+	serverQueue.textChannel.send(`$song.thumbnails`);
 	
 }
 
