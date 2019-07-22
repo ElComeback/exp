@@ -532,7 +532,7 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`\`\`♫♪♫♪ Reproduciendo...:\`\` \`\`\`${song.title}\`\`\` ♪～(￣ε￣)`);
-	serverQueue.textChannel.send(`$song.thumbnails`);
+	serverQueue.textChannel.send(`${song.thumbnails}`);
 	
 }
 
