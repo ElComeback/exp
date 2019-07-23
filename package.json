@@ -17,7 +17,8 @@
     "node-opus": "0.3.2",
     "discord.js": "^11.5.1",
     "simple-youtube-api": "^5.2.1",
-    "ytdl-core": "^0.29.3"
+    "ytdl-core": "^0.29.3",
+    "world-clock": "1.4.0"
   },
   "devDependencies": {
     "eslint": "^6.0.1",
