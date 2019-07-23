@@ -356,7 +356,9 @@ message.channel.send({embed})
         }});
 
 //Modulo "Hora Mundial"
-const clock = require('world-clock')()
+const clock = require('world-clock')();
+const serverQueue = queue.get(msg.guild.id);
+
 client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "hora")) {
 	  clock.isValid('Europe/London', Date.now()) // true 
