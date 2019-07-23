@@ -355,6 +355,16 @@ message.channel.send({embed})
         purge();
         }});
 
+//Modulo "Hora Mundial"
+const clock = require('world-clock')()
+client.on("message", (message) => {
+  if (message.content.startsWith(PREFIX + "hora")) {
+	  clock.isValid('Europe/London', Date.now()) // true 
+    serverQueue.textChannel.send(`${clock}`) 
+  }});
+
+//channel.edit({ name: 'new-channel' })
+
 //Modulo de Musica
 
 
@@ -532,8 +542,6 @@ function play(guild, song) {
 	dispatcher.setVolumeLogarithmic(serverQueue.volume / 5);
 
 	serverQueue.textChannel.send(`\`\`♫♪♫♪ Reproduciendo...:\`\` \`\`\`${song.title}\`\`\` ♪～(￣ε￣)`);
-	serverQueue.textChannel.send(${thumbnails :song.maxres});
-	
 }
 
 //Autenticacion del Bot via Config.json
