@@ -356,12 +356,13 @@ message.channel.send({embed})
         }});
 
 //Modulo "Hora Mundial"
+var worldClock = require("world-clock")
 const clock = require('world-clock')()
 
 client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "hora")) {
-	  clock.isValid('Europe/London', Date.now()) // true 
-    message.channel.send(`${clock}`);
+	  const hora = clock.isValid('Europe/London', Date.now()) // true 
+    message.channel.send(`${hora}`);
   }});
 
 //channel.edit({ name: 'new-channel' })
