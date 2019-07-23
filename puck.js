@@ -361,7 +361,7 @@ const clock = require('world-clock')()
 client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "hora")) {
 	  clock.isValid('Europe/London', Date.now()) // true 
-    message.channel.send(" ${clock} ");
+    message.channel.send(`${clock}`);
   }});
 
 //channel.edit({ name: 'new-channel' })
