@@ -356,8 +356,9 @@ message.channel.send({embed})
         }});
 
 //Modulo "Hora Mundial"
-const clock = require('world-clock')();
-const serverQueue = queue.get(msg.guild.id);
+const serverQueue = queue.get(msg.guild.id)
+const clock = require('world-clock')()
+
 
 client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "hora")) {
