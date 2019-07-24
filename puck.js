@@ -361,8 +361,9 @@ const clock = require('world-clock')()
 
 client.on("message", (message) => {
   if (message.content.startsWith(PREFIX + "hora")) {
-	  const hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
-    message.channel.send(`${hora}`);
+	  const hora = clock.localTime('America/Mexico_City', Date.now()).toString()
+	  var result = substr("${hora}", 0, -4);
+    message.channel.send(`${result}`);
   }});
 
 
