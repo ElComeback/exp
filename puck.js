@@ -362,7 +362,9 @@ client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hor
 
 let hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
 
-message.channel.send(`${hora}`); }}); 
+let result = substr(`${hora`}, 0, -4) 
+
+message.channel.send(`${result}`); }}); 
 
 //channel.edit({ name: 'new-channel' })
 
