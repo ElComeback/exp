@@ -355,16 +355,16 @@ message.channel.send({embed})
         purge();
         }});
 
-//Modulo "Hora Mundial"
-var worldClock = require("world-clock")
-const clock = require('world-clock')()
+//Modulo "Hora Mundial" 
+var worldClock = require("world-clock") const clock = require('world-clock')() 
 
-client.on("message", (message) => {
-  if (message.content.startsWith(PREFIX + "hora")) {
-	  const hora = clock.localTime('America/Mexico_City', Date.now()).toString()
-	   substr(`${hora}`, 0, -4)
-    message.channel.send(`${hora}`);
-  }});
+client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
+
+const hora = clock.localTime('America/Mexico_City', Date.now()).toString() 	 
+
+const result = substr(${hora}, 0, -4).toString() 
+
+message.channel.send(`${result}`); }}); 
 
 
 
