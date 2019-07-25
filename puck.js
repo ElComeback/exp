@@ -360,7 +360,7 @@ var clock = require('world-clock')()
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
-var hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
+let hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
 
 message.channel.send(`${hora}`); }}); 
 
