@@ -356,11 +356,11 @@ message.channel.send({embed})
         }});
 
 //Modulo "Hora Mundial" 
-var worldClock = require("world-clock") const clock = require('world-clock')() 
+var clock = require('world-clock')() 
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
-const hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
+var hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
 
 message.channel.send(`${hora}`); }}); 
 
