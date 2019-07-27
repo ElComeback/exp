@@ -364,7 +364,9 @@ let hora = clock.localTime('America/Mexico_City', Date.now()).toString()
 channel.edit({ name: 'Hora: `${hora}`' })
 message.channel.send(`${hora}`); }}); 
 
-channel.edit({ name: 'Hora: `${hora}`' })
+ client.on("message", (message) => { if (message.content.startsWith(PREFIX + "check")) {
+	var chan = GET/channels/{channel.id} 
+	message.channel.send(`${chan}`)}});
 
 //Modulo de Musica
 
