@@ -361,10 +361,10 @@ var clock = require('world-clock')()
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
 let hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
-
+channel.edit({ name: 'Hora: `${hora}`' })
 message.channel.send(`${hora}`); }}); 
 
-//channel.edit({ name: 'new-channel' })
+channel.edit({ name: 'Hora: `${hora}`' })
 
 //Modulo de Musica
 
