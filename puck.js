@@ -361,8 +361,8 @@ var clock = require('world-clock')()
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
 let hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
-channel.edit({ name: 'Hora: `${hora}`' })
-message.channel.send(`${hora}`); }}); 
+let mod_hora = hora.substr(0,8);
+message.channel.send(`${mod_hora}`); }}); 
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "check")) {
 	var chan = get.channel.id()
