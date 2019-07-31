@@ -366,7 +366,7 @@ let mod_hora = hora.substr(0,8);
 message.channel.send(`${mod_hora}`); }}); 
 
 // Edit a channel
-var channel require("discord.js");
+var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 channel.edit({ name: "Hora: Mexico `${mod_hora}` " })
