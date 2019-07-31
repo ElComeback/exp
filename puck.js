@@ -355,7 +355,7 @@ message.channel.send({embed})
         purge();
         }});
 
-//Modulo "Hora Mundial" 
+	//Modulo "Hora Mundial" 
 var clock = require('world-clock')() 
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
@@ -366,10 +366,12 @@ let mod_hora = hora.substr(0,8);
 message.channel.send(`${mod_hora}`); }}); 
 
 // Edit a channel
-client.on("message", (message) => { if (message.content.startsWith(PREFIX + "Test")) { 
-channel.edit({ name: 'Hora: Mexico `${mod_hora}`' })
+var channel require("discord.js");
+
+client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
+channel.edit({ name: "Hora: Mexico `${mod_hora}` " })
   .then(console.log)
-  .catch(console.error)}});	
+  .catch(console.error)}});
 
 //Modulo de Musica
 
