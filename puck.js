@@ -360,14 +360,16 @@ var clock = require('world-clock')()
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
-let hora = clock.localTime('America/Mexico_City', Date.now()).toString() 
+let hora_mex = clock.localTime('America/Mexico_City', Date.now()).toString() 
 let mod_hora = hora.substr(0,8);
+	
 message.channel.send(`${mod_hora}`); }}); 
 
-client.on("message", (message) => { if (message.content.startsWith(PREFIX + "check")) {
-	var chan = get.channel.id()
-	message.channel.send(`${chan}`)}}); 
-	
+// Edit a channel
+client.on("message", (message) => { if (message.content.startsWith(PREFIX + "Test")) { 
+channel.edit({ name: 'Hora: Mexico `${mod_hora}`' })
+  .then(console.log)
+  .catch(console.error)}});	
 
 //Modulo de Musica
 
