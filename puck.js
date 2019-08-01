@@ -372,7 +372,8 @@ client.on("message", (message) => { if (message.content.startsWith(PREFIX + "tes
 // Edit a channel
 let hora_mex = clock.localTime('America/Mexico_City', Date.now()).toString() 
 let mod_hora = hora_mex.substr(0,8);
-message.guild.channels.find("name", "general").setName('Hora de Mexico: ${mod_hora}')}});
+message.guild.channels.find("name", "general").setName('Hora de Mexico: ${mod_hora}');
+}});
 
 //Modulo de Musica
 
