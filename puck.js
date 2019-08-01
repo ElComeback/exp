@@ -370,9 +370,7 @@ var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
-let hora_mex = clock.localTime('America/Mexico_City', Date.now()).toString() 
-let mod_hora = hora_mex.substr(0,8);
-message.guild.channels.find("name", "general").setName(`Channel's ${mod_hora}`); }});
+message.guild.channels.find("name", "general").setName("Testing"); }});
 
 //Modulo de Musica
 
