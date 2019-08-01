@@ -361,7 +361,7 @@ var clock = require('world-clock')()
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "hora")) { 	 
 
 let hora_mex = clock.localTime('America/Mexico_City', Date.now()).toString() 
-let mod_hora = hora.substr(0,8);
+let mod_hora = hora_mex.substr(0,8);
 	
 message.channel.send(`${mod_hora}`); }}); 
 
@@ -371,7 +371,7 @@ var channel = require("discord.js");
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
 let hora_mex = clock.localTime('America/Mexico_City', Date.now()).toString() 
-let mod_hora = hora.substr(0,8);
+let mod_hora = hora_mex.substr(0,8);
 message.guild.channels.find("name", "general").setName(`Hora de Mexico: ${mod_hora}`)}});
 
 //Modulo de Musica
