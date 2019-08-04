@@ -370,7 +370,8 @@ var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
-message.guild.channels.find("name", "general").setName("Testing"); }});
+ let chan ChannelPosition(guild,1);.toString()
+message.channel.send(`${chan}`) }});
 
 //Modulo de Musica
 
