@@ -372,11 +372,7 @@ var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
-
-// Create a new text channel
-guild.createChannel('Escribiendo...', { type: 'text' })
-  .then(console.log)
-  .catch(console.error);
+guild.createChannel('Escribiendo...', { type: 'text' });
  }});
 
 //Modulo de Musica
