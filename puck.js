@@ -370,7 +370,7 @@ var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
-.createChannel("The Hour Channel",'text', new position(1)) 
+Guild.createChannel("The Hour Channel",'text', new position(1)) 
  }});
 
 //Modulo de Musica
