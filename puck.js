@@ -7,7 +7,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 const Discord = require("discord.js");
 const bot = new Discord.Client();
-const guild = require ('discord.js')
+const guild = require ('discord.js');
 
 
 client.on('warn', console.warn);
