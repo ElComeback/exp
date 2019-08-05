@@ -366,10 +366,7 @@ let mod_hora = hora_mex.substr(0,8);
 message.channel.send(`${mod_hora}`); }}); 
 
 // Edit a channel
-const guild = require ("discord.js");
 
-client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
-	
 		function sleep(milliseconds) {
   var start = new Date().getTime();
   for (var i = 0; i < 1e7; i++) {
@@ -377,7 +374,10 @@ client.on("message", (message) => { if (message.content.startsWith(PREFIX + "tes
       break;
     }
   }
-}	
+}
+
+const guild = require ("discord.js");
+client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 	
     message.guild.createChannel("Escribiendo", "text")	
 sleep(2000);	
     message.guild.channels.find("name", "Escribiendo").setName("Hora de Mexico: `${mod_hora}`")  
