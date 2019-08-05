@@ -369,10 +369,10 @@ message.channel.send(`${mod_hora}`); }});
 const guild = require ("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
-    message.guild.createChannel("Escribiendo...", "text")
+    message.guild.createChannel("Escribiendo", "text")
 	setTimeout(function(){
-    message.guild.channels.find("name", "Escribiendo...").setName("'Hora de Mexico: '`${mod_hora}`") 
-}, 2000)
+    message.guild.channels.find("name", "Escribiendo").setName("Hora de Mexico: `${mod_hora}`") 
+}, 2000);
 }});
 
 //Modulo de Musica
