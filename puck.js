@@ -370,6 +370,7 @@ const guild = require ("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
     message.guild.createChannel("Escribiendo...", "text")
+	channel.edit({ name: 'Hora de Mexico: '`${mod_hora}` })
  }});
 
 //Modulo de Musica
