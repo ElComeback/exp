@@ -7,6 +7,7 @@ const youtube = new YouTube(GOOGLE_API_KEY);
 const queue = new Map();
 const Discord = require("discord.js");
 const bot = new Discord.Client();
+const guild = require ('discord.js')
 
 
 client.on('warn', console.warn);
@@ -371,6 +372,7 @@ var channel = require("discord.js");
 
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 
 // Edit a channel
+
 // Create a new text channel
 guild.createChannel('Escribiendo...', { type: 'text' })
   .then(console.log)
