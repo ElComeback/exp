@@ -377,11 +377,11 @@ message.channel.send(`${mod_hora}`); }});
 }
 
 const guild = require ("discord.js");
+
 client.on("message", (message) => { if (message.content.startsWith(PREFIX + "test")) { 	
     message.guild.createChannel("escribiendo", "text")	
-sleep(2000);
-    message.guild.channels.find("name", "escribiendo")
-	    message.channel.setName("testing");
+sleep(2000)
+    message.guild.channels.find("name", "escribiendo").setName("Probando");
 }});
 
 //Modulo de Musica
